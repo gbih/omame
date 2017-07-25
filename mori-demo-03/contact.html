@@ -2,7 +2,7 @@
 <html prefix="og: http://ogp.me/ns#">
 
 
-<!-- Mirrored from 0.0.0.0:4000/contact by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Jul 2017 11:09:14 GMT -->
+<!-- Mirrored from 0.0.0.0:4000/contact by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Jul 2017 11:31:08 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
 
@@ -40,7 +40,7 @@
       }
     }</script>
 
- <link rel="stylesheet" href="css/app-4bc885f47dcec93de17ffc83737b79fe24ad.css?vsn=d">
+ <link rel="stylesheet" href="css/app-111b887de76ac807423ea2bfbf83220524ad.css?vsn=d">
   </head>
   <body>
 
@@ -640,6 +640,53 @@ new Vue({
 </div>
 
 </section>
+
+<hr>
+
+<!-- map -->
+<section class="section-spacer-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>
+        </h1>
+        <ul>
+          <li> [本社]
+          </li>
+          <li> [営業所]
+          </li>
+          <li> 電車: 平塚駅から徒歩 xx分 </li>
+          <li> 車: xxインターから xx分</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section-spacer-none">
+  <div id="map"></div>
+
+  <script>
+    function initMap() {
+      var uluru = { lat: 35.332252, lng: 139.336172 };
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: uluru,
+        zoom: 14,
+        scrollwheel: false
+      });
+      var marker = new google.maps.Marker({
+        position: uluru,
+        map: map
+      });
+    }
+  </script>
+
+  <!-- Replace the value of the key parameter with your own API key. -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbULmlf9bA-BCNwNMjiKrOrEw5jtAjBQ4&amp;callback=initMap"></script>
+
+</section>
 </main>
 <!--// main -->
 
@@ -701,5 +748,5 @@ new Vue({
     <script src="#"></script>
   </body>
 
-<!-- Mirrored from 0.0.0.0:4000/contact by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Jul 2017 11:09:16 GMT -->
+<!-- Mirrored from 0.0.0.0:4000/contact by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Jul 2017 11:31:10 GMT -->
 </html>
