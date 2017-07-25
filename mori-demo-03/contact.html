@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+
+<!-- Mirrored from 0.0.0.0:4000/contact by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Jul 2017 04:34:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+  <meta charset="utf-8">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="favicon.ico">
+
+  <link rel="stylesheet" href="css/components-d41d8cd98f00b204e9800998ecf8427e24ad.css?vsn=d">
+
+    <title>お問合せ | 株式会社モリ</title>
+
+    <!-- ogp 1 -->
+    <meta content="株式会社モリは、。。。。。。。。とを目指す会社です。" name="description">
+	  <meta content="株式会社モリ" property="og:site_name">
+	  <meta content="website" property="og:type">
+	  <meta content="https://PUT-URL-HERE/logo-ogp.png" property="og:image">
+  <!-- ogp 2 -->
+  <meta content="http://PUT-URL-HERE/company/" property="og:url">
+	<meta content="株式会社モリ:お問合せ" property="og:title">
+
+    <script type='application/ld+json'>{
+      "@context": "http://www.schema.org",
+      "@type": "LocalBusiness",
+      "name": "Example Company Name",
+      "address": "[本社] 神奈川県平塚市豊原町25-8", 
+      "telephone": "0463-32-3311",
+      "image": "http://www.omame.com/assets/img/photos/top/01_yama_top_21.jpg",
+      "hasMap": {
+        "@type": "Map",
+        "mapType": "VenueMap",
+        "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3254.942204822805!2d139.33398867946818!3d35.33225665673592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6019ace315ee1b1b%3A0xb89d859c60c0a8e0!2s25-8+Toyoharach%C5%8D%2C+Hiratsuka-shi%2C+Kanagawa-ken+254-0051!5e0!3m2!1sen!2sjp!4v1498825147990"
+      }
+    }</script>
+
+ <link rel="stylesheet" href="css/app-0137fe8db59ea431e13d6cc4398811da24ad.css?vsn=d">
+  </head>
+  <body>
+
+<style>
+.navbar-brand, .nav > li > a {
+  padding: 6px;
+}
+</style>
+
+    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse py-2">
+      <button class="navbar-toggler navbar-toggler-right mr-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+<a class="nav-link navbar-brand" href="index.html">        <img src="images/mori_logo-e86bccdb8679a055e1f0bcbf89a9f73824ad.svg?vsn=d">
+</a>
+      <div class="collapse navbar-collapse mr-auto" id="navbarCollapse">
+        <div class="mr-auto">
+
+        </div>
+
+        <ul class="navbar-nav">
+          <li class="nav-item">
+<a class="nav-link" href="company.html">会社案内</a>          </li>
+          <li class="nav-item">
+<a class="nav-link" href="products.html">取扱商品</a>          </li>
+          <li class="nav-item">
+<a class="nav-link" href="manufacturers.html">取扱メーカー</a>          </li>
+          <li class="nav-item">
+<a class="nav-link" href="service.html">サービス</a>          </li>
+          <li class="nav-item mr-1">
+<a class="nav-link active" href="contact.html">お問合せ</a>          </li>
+          </ul>
+
+      </div>
+    </nav>
+
+
+
+<!-- main -->
+<main role="main">
+<script src="js/vue-f3304bbb2d5973eed6b0422a293c58b624ad.js?vsn=d"></script>
+<script src="https://cdn.jsdelivr.net/npm/vee-validate@latest/dist/vee-validate.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+
+<!--
+<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
+-->
+<script src="js/vue-resource.js"></script>
+
+<!--
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+-->
+<!--
+<link href="maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+-->
+
+<section class="inner">
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+    <h1 class="title-top display-5">お問合せ</h1>
+
+
+<style>
+
+.isa_success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+}
+
+.isa_error, .fa-warning {
+    color: #d9534f;
+
+}
+</style>
+
+
+<div id="app"></div>
+<script>
+
+const messages = {
+  after: (field, [target]) => `${field}は${target}の後でなければなりません`,
+  alpha_dash: (field) => `${field}は英数字とハイフン、アンダースコアのみ使用できます`,
+  alpha_num: (field) => `${field}は英数字のみ使用できます`,
+  alpha_spaces: (field) => `${field}はアルファベットと空白のみ使用できます`,
+  alpha: (field) => `${field}はアルファベットのみ使用できます`,
+  before: (field, [target]) => `${field}は${target}よりも前でなければなりません`,
+  between: (field, [min, max]) => `${field}は${min}から${max}の間でなければなりません`,
+  confirmed: (field) => `${field}が一致しません`,
+  credit_card: (field) => `${field}が正しくありません`,
+  date_between: (field, [min, max]) => `${field}は${min}から${max}の間でなければなりません`,
+  date_format: (field, [format]) => `${field}は${format}形式でなけれななりません`,
+  decimal: (field, [decimals] = ['*']) => `${field}は整数及び小数点以下${decimals === '*' ? '' : decimals}桁までの数字にしてください`,
+  digits: (field, [length]) => `${field}は${length}桁の数字でなければなりません`,
+  dimensions: (field, [width, height]) => `${field}は幅${width}px、高さ${height}px以内でなければなりません`,
+  email: (field) => `${field}は有効なメールアドレスではありません`,
+  ext: (field) => `${field}は有効なファイル形式ではありません`,
+  image: (field) => `${field}は有効な画像形式ではありません`,
+  in: (field) => `${field}は有効な値ではありません`,
+  ip: (field) => `${field}は有効なIPアドレスではありません`,
+  max: (field, [length]) => `${field}は${length}文字以内にしてください`,
+  max_value: (field, [max]) => `${field}は${max}以下でなければなりません`,
+  mimes: (field) => `${field}は有効なファイル形式ではありません`,
+  min: (field, [length]) => `${field}は${length}文字以上でなければなりません`,
+  min_value: (field, [min]) => `${field}は${min}以上でなければなりません`,
+  not_in: (field) => `${field}は不正な値です`,
+  numeric: (field) => `${field}は数字のみ使用できます`,
+  regex: (field) => `${field}が正しくありません`,
+  required: (field) => `${field}は必須項目です`,
+  size: (field, [size]) => `${field}は${size}KB以内でなければなりません`,
+  url: (field) => `${field}が正しくありません`
+};
+
+const locale = {
+    name: 'ja',
+    messages,
+    attributes: {}
+};
+
+if (typeof VeeValidate !== 'undefined' && VeeValidate && typeof VeeValidate.Validator) {
+    VeeValidate.Validator.addLocale(locale);
+}
+
+
+const config = {
+  headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+  errorBagName: 'errors', // change if property conflicts.
+  fieldsBagName: 'fields', 
+  delay: 100, 
+  locale: 'ja', 
+  dictionary: null, 
+  strict: true, 
+  enableAutoClasses: false, 
+  classNames: {
+    touched: 'touched', // the control has been blurred
+    untouched: 'untouched', // the control hasn't been blurred
+    valid: 'valid', // model is valid
+    invalid: 'invalid', // model is invalid
+    pristine: 'pristine', // control has not been interacted with
+    dirty: 'dirty' // control has been interacted with
+  },
+  events: 'input|blur',
+  inject: true
+};
+
+
+
+Vue.use(VeeValidate, config);
+
+
+// Use a new method on the global Vue object.
+// .use tells Vue to add a plugin to the core VueJS functionality.
+// So, the core VueJS functionality is now extended.
+Vue.use(VueResource);
+
+
+
+
+//Vue.use(VeeValidate);
+
+VeeValidate.Validator.extend('passphrase', {
+    getMessage: field => 'Sorry, please try again.',
+    validate: value => value.toUpperCase() == 'Demogorgon'.toUpperCase()
+});
+
+
+// <form @submit.prevent="validateBeforeSubmit" v-if="!formSubmitted" id='myform'>
+// <form action="https://jiko.000webhostapp.com/mailer.php" id='myform' method="post">
+
+new Vue({
+  el: '#app',
+  template: `
+<form @submit.prevent="validateBeforeSubmit" v-if="!formSubmitted" id='myform'>
+
+<div class="cascading-dropdown">
+
+  <div class="dropdown form-group">
+   <label>取扱メーカー:</label>
+    <select v-model="selectedMaker" class="form-control form-control-md">
+      <option value="">取扱メーカーの選択</option>
+      <option v-for="(category_key, category_val) in catalog" :value="category_val" :key="category_key">{{category_val}}</option>
+    </select>
+  </div>
+
+  <div class="dropdown form-group">
+    <label>商品カテゴリー:</label>
+    <select :disabled="categories.length == 0" v-model="selectedCategory" class="form-control form-control-md">
+      <option value="">商品カテゴリーの選択</option>
+      <option v-for="(product_key, product_val) in categories" :key="product_key">{{product_val}}</option>
+    </select>
+  </div>
+
+  <div class="dropdown form-group">
+    <label>商品:</label>
+    <select :disabled="products.length == 0" v-model="selectedProduct" class="form-control form-control-md">
+      <option value="">商品の選択</option>
+      <option v-for="product_key in products" :key="product_key">{{product_key}}</option>
+
+    </select>
+  </div>
+
+</div>
+
+
+
+<br>
+<div class="card text-center">
+  <div class="card-header">
+    <h4>手入力（自由入力フォーム</h4>
+  </div>
+  <div class="card-block">
+    <p class="card-text">
+      ○○○社・○○○商品・○○○個について 取扱メーカー商品以外の商品や機械についても ご気軽にお問合せください。
+    </p>
+  </div>
+</div>
+<br>
+
+
+<div class="form-group" :class="{ 'has-danger': errors.has('company'), 'has-success': fields.company && fields.company.valid }">
+  <label class="control-label" for="email">会社名</label>
+    <input 
+    v-model="company"
+    v-validate.initial="{ rules: { required: true } }" 
+    type="text" 
+    name="company" 
+    class="form-control"
+    :class="{ 'form-control-danger' : errors.has('company'), 'form-control-success': fields.company && fields.company.valid }"
+    >
+    <i v-show="errors.has('company')" class="fa fa-warning small"></i>
+    <small v-show="errors.has('company')" class="text-danger help is-danger">{{ errors.first('company') }}</small>
+</div>
+
+
+<div class="form-group" :class="{ 'has-danger': errors.has('dept'), 'has-success': fields.dept && fields.dept.valid }">
+  <label class="control-label" for="email">部署名</label>
+    <input 
+    v-model="dept"
+    v-validate.initial="{ rules: { required: true } }" 
+    type="text" 
+    name="dept" 
+    class="form-control"
+    :class="{ 'form-control-danger' : errors.has('dept'), 'form-control-success': fields.dept && fields.dept.valid }"
+    >
+    <i v-show="errors.has('dept')" class="fa fa-warning small"></i>
+    <small v-show="errors.has('dept')" class="text-danger help is-danger">{{ errors.first('dept') }}</small>
+</div>
+
+
+<div class="form-group" :class="{ 'has-danger': errors.has('name'), 'has-success': fields.name && fields.name.valid }">
+  <label class="control-label" for="email">お名前</label>
+    <input 
+    v-model="name"
+    v-validate.initial="{ rules: { required: true } }" 
+    type="text" 
+    name="name" 
+    class="form-control"
+    :class="{ 'form-control-danger' : errors.has('name'), 'form-control-success': fields.name && fields.name.valid }"
+    >
+    <i v-show="errors.has('name')" class="fa fa-warning small"></i>
+    <small v-show="errors.has('name')" class="text-danger help is-danger">{{ errors.first('name') }}</small>
+</div>
+
+
+<div class="form-group" :class="{ 'has-danger': errors.has('furigana'), 'has-success': fields.furigana && fields.furigana.valid }">
+  <label class="control-label" for="email">ふりがな</label>
+    <input 
+    v-model="furigana"
+    v-validate.initial="{ rules: { required: true } }" 
+    type="text" 
+    name="furigana" 
+    class="form-control"
+    :class="{ 'form-control-danger' : errors.has('furigana'), 'form-control-success': fields.furigana && fields.furigana.valid }"
+    >
+    <i v-show="errors.has('furigana')" class="fa fa-warning small"></i>
+    <small v-show="errors.has('furigana')" class="text-danger help is-danger">{{ errors.first('furigana') }}</small>
+</div>
+
+
+<div class="form-group" :class="{ 'has-danger': errors.has('email'), 'has-success': fields.email && fields.email.valid }">
+  <label class="control-label" for="email">メールアドレス</label>
+    <input 
+    v-model="email"
+    v-validate.initial="{ rules: { required: true, email: true } }" 
+    type="text" 
+    name="email" 
+    class="form-control"
+    :class="{ 'form-control-danger' : errors.has('email'), 'form-control-success': fields.email && fields.email.valid }"
+    >
+    <i v-show="errors.has('email')" class="fa fa-warning small"></i>
+    <small v-show="errors.has('email')" class="text-danger help is-danger">{{ errors.first('email') }}</small>
+</div>
+
+
+<div class="form-group" :class="{ 'has-danger': errors.has('phone'), 'has-success': fields.phone && fields.phone.valid }">
+  <label class="control-label" for="email">電話</label>
+    <input 
+    v-model="phone"
+    v-validate.initial="{ rules: { required: true } }" 
+    type="text" 
+    name="phone" 
+    class="form-control"
+    :class="{ 'form-control-danger' : errors.has('phone'), 'form-control-success': fields.phone && fields.phone.valid }"
+    >
+    <i v-show="errors.has('phone')" class="fa fa-warning small"></i>
+    <small v-show="errors.has('phone')" class="text-danger help is-danger">{{ errors.first('phone') }}</small>
+</div>
+
+
+
+
+
+<label for="">連絡する方法:</label>
+<div class="form-group">
+  <label class="custom-control custom-checkbox">
+    <input 
+      id="byemail"
+      name="byemail" 
+      v-model="byemail"
+      type="checkbox" 
+      value="byemail"
+      class="custom-control-input"
+    >
+    <span class="custom-control-indicator"></span>
+    <span class="custom-control-description">メール</span>
+  </label>
+
+  <label class="custom-control custom-checkbox">
+    <input 
+      id="byphone"
+      name="byphone" 
+      v-model="byphone"
+      type="checkbox" 
+      value="byphone"
+      class="custom-control-input"
+      >
+    <span class="custom-control-indicator"></span>
+    <span class="custom-control-description">電話</span>
+  </label>
+</div>
+
+
+
+
+<div class="form-group">
+  <label for="message">メッセージ</label>
+    <textarea 
+    v-model="message"
+    type="text" 
+    name="message" 
+    class="form-control"
+    rows="5"
+    >
+    </textarea>
+</div>
+
+
+<!--
+<button type="submit" class="btn btn-primary"> test submit </button>
+-->
+
+<hr>
+
+<button type="submit" class="btn btn-primary"> 送信 </button>
+
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h4>Your Data</h4>
+    </div>
+    <div class="panel-body">
+    <ul>
+        <li>Company: {{ company }}</li>
+        <li>Dept: {{ dept }}</li>
+        <li>Name: {{ name }}</li>
+        <li>Furigana: {{ furigana }}</li>
+        <li>Email: {{ email }}</li>
+        <li>Phone: {{ phone }}</li>
+        <li>Contact by Mail: {{ byemail }}</li>
+        <li>Contact by Phone: {{ byphone }}</li>
+        <li style="white-space: pre">Message: {{ message }}</li>
+        <li>Selected Product: {{selectedProduct}}</li>
+    </ul>
+    </div>
+  </div>
+
+</form>
+
+
+
+
+
+
+
+
+
+`,
+  data: function (event) {
+    return {
+      activeClass: 'active',
+      errorClass: 'has-danger',
+      company: '',
+      dept: '',
+      name: '',
+      furigana: '',
+      email: '',
+      phone: '',
+      message: '',
+      byemail: '',
+      byphone: '',
+      formSubmitted: false,
+
+      catalog: {
+        "株式会社ミツトヨ": {
+          "Category 1": ["C1-Product 1", "C1-Product 2", "C1-Product 3", "C1-Product 4"],
+          "Category 2": ["C2-Product 1", "C2-Product 2", "C2-Product 3"],
+          "Category 3": ["C3-Product 1", "C3-Product 2", "C3-Product 3", "C3-Product 4", "C3-Product 5"],
+          "Category 4": ["C4 Product 1"],
+          "Category 5": ["C1-Product 1", "C1-Product 2", "C1-Product 3"]
+        },
+        "日本精工株式会社(NSK)": {
+          "Category 1": ["C1-Product 1", "C1-Product 2", "C1-Product 3", "C1-Product 4"],
+          "Category 2": ["C2-Product 1", "C2-Product 2", "C2-Product 3"],
+          "Category 3": ["C3-Product 1", "C3-Product 2", "C3-Product 3", "C3-Product 4", "C3-Product 5"]
+        },
+        "株式会社タンガロ": {
+          "Category 1": ["C1-Product 1", "C1-Product 2", "C1-Product 3", "C1-Product 4"],
+          "Category 2": ["C2-Product 1", "C2-Product 2", "C2-Product 3"],
+          "Category 3": ["C3-Product 1", "C3-Product 2", "C3-Product 3", "C3-Product 4", "C3-Product 5"],
+          "Category 4": ["C4 Product 1"]
+        },
+        "株式会社不二越": {
+          "Category 1": ["C1-Product 1", "C1-Product 2", "C1-Product 3", "C1-Product 4"],
+          "Category 2": ["C2-Product 1", "C2-Product 2", "C2-Product 3"],
+          "Category 3": ["C3-Product 1", "C3-Product 2", "C3-Product 3", "C3-Product 4", "C3-Product 5"],
+          "Category 4": ["C4 Product 1"],
+          "Category 5": ["C1-Product 1", "C1-Product 2", "C1-Product 3"]
+        },
+        "日東工器株式会社": {
+          "Category 1": ["C1-Product 1", "C1-Product 2", "C1-Product 3", "C1-Product 4"],
+          "Category 2": ["C2-Product 1", "C2-Product 2", "C2-Product 3"],
+          "Category 3": ["C3-Product 1", "C3-Product 2", "C3-Product 3", "C3-Product 4", "C3-Product 5"],
+          "Category 4": ["C4 Product 1"]
+        },
+        "株式会社キト": {
+          "Category 1": ["C1-Product 1", "C1-Product 2", "C1-Product 3", "C1-Product 4"],
+          "Category 2": ["C2-Product 1", "C2-Product 2", "C2-Product 3"]
+        }
+      },
+      categories: [],
+      products: [],
+      selectedMaker: "",
+      selectedCategory: "",
+      selectedProduct: ""
+    }
+  },
+  created: function () {
+    // `this` points to the vm instance
+    //axios.defaults.headers.common['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
+  },
+  methods: {
+    validateBeforeSubmit(event) {
+      this.$validator.validateAll().then(result => {
+          if(!this.errors.any()) {
+            console.log('inside validateBeforeSubmit');
+            console.log(`event: ${event}`);
+            this.submitForm()
+          }
+      });
+    },
+
+
+/*
+  vue-resource sample
+  this.$http.post('/someUrl', formData).then(response => {
+      // success callback
+    }, response => {
+      // error callback
+  });
+*/
+
+
+    submitForm: function() {
+
+        company = this.company,
+        dept = this.dept,
+        name = this.name,
+        furigana = this.furigana,
+        email = this.email,
+        phone = this.phone,
+        byemail = this.byemail,
+        byphone = this.byphone,
+        message = this.message,
+        selectedMaker = this.selectedMaker,
+        selectedCategory = this.selectedCategory,
+        selectedProduct = this.selectedProduct,
+        message = this.message
+
+      console.log(company,
+        dept,
+        name,
+        furigana,
+        email,
+        phone,
+        byemail,
+        byphone,
+        message,
+        selectedMaker,
+        selectedCategory,
+        selectedProduct,
+        message);
+
+      // TEST: JSON server
+      //axios.post(`http://jsonplaceholder.typicode.com/posts`, {
+      //axios.post(`http://localhost:3000/posts`, {
+
+      // TEST: raw JS
+      /*
+      if(document.myform.onsubmit()) {
+          document.myform.submit();
+      }
+      */
+
+      // PRODUCTION: AJAX
+      //axios.post(`https://jiko.000webhostapp.com/mailer.php`, {
+
+      this.$http.post(`https://jiko.000webhostapp.com/mailer.php`, {
+        company,
+        dept,
+        name,
+        furigana,
+        email,
+        phone,
+        byemail,
+        byphone,
+        message,
+        selectedMaker,
+        selectedCategory,
+        selectedProduct,
+        message
+      }).then(function(response) {
+        console.log('email sent successfully');
+        console.log(response.data); // eg email: 'f@f.com'
+        console.log(response.status); // eg 200
+        
+        this.formSubmitted = true;
+        alert ('1: Your form was submitted');
+        // check here http://localhost:3000/posts/
+      }).catch(function(error) {
+        console.log(error);
+        alert('2: Form submission failed');
+      });
+
+
+
+    }
+
+  }, 
+
+  watch: {
+    selectedMaker: function () {
+      // Clear previously selected values
+      this.categories = [];
+      this.products = [];
+      this.selectedCategory = "";
+      this.selectedProduct = "";
+      // Populate list of categories in the second dropdown
+      if (this.selectedMaker.length > 0) {
+        this.categories = this.catalog[this.selectedMaker]
+      }
+    },
+    selectedCategory: function () {
+      // Clear previously selected values
+      this.products = [];
+      this.selectedProduct = "";
+      // Now we have a continent and country. Populate list of products in the third dropdown
+      if (this.selectedCategory.length > 0) {
+        this.products = this.catalog[this.selectedMaker][this.selectedCategory]
+      }
+    },
+    selectedProduct: function () {
+      console.log(this.selectedProduct);
+    }
+  }
+})
+
+</script>
+ 
+
+</div>
+</div>
+</div>
+
+</section>
+</main>
+<!--// main -->
+
+
+
+
+
+
+
+<footer class="footer">
+
+  <ul class="footer-list">
+    
+      <li class="footer-list-item">© 株式会社モリ 2017</li>
+
+      <li class="footer-list-item">
+<a class="link footer-list-link" href="index.html">Top</a>      </li>
+    
+      <li class="footer-list-item">
+<a class="link footer-list-link" href="company.html">会社案内</a>      </li>
+    
+      <li class="footer-list-item">
+<a class="link footer-list-link" href="products.html">取扱商品</a>      </li>
+
+      <li class="footer-list-item">
+<a class="link footer-list-link" href="manufacturers.html">取扱メーカー</a>      </li>
+
+      <li class="footer-list-item">
+<a class="link footer-list-link" href="service.html">サービス</a>      </li>
+
+      <li class="footer-list-item">
+<a class="link footer-list-link" href="contact.html">お問合せ</a>      </li>
+
+      <li class="footer-list-item">
+<a class="link footer-list-link" href="sitemap.html">サイトマップ</a>      </li>
+    
+  </ul>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <script src="#"></script>
+  </body>
+
+<!-- Mirrored from 0.0.0.0:4000/contact by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Jul 2017 04:34:37 GMT -->
+</html>
