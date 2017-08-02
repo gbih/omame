@@ -1,5 +1,15 @@
-Vue.use(window.vuelidate.default);
-const { required, email } = window.validators;
+"use strict";
+
+Vue.use(window.vuelidate["default"]);
+var _window$validators = window.validators;
+var required = _window$validators.required;
+var email = _window$validators.email;
+
+// above it ES5 for ios9 browsers
+
+// below is ES6 version
+// Vue.use(window.vuelidate.default);
+// const { required, email } = window.validators;
 
 
 
