@@ -46,7 +46,7 @@ new Vue({
       </template>
       <template v-else>
       取扱メーカーを選択してください。<br>
-      取扱カテゴリー以外は[メッセージ]にご記入してください。
+      取扱メーカー以外は[メッセージ]にご記入してください。
       </template>
 
 	</div>
@@ -72,7 +72,7 @@ new Vue({
       </template>
       <template v-else>
       商品カテゴリーを選択してください。<br>
-       取扱カテゴリー以外は[メッセージ]にご記入してください。
+       取扱商品カテゴリー以外は[メッセージ]にご記入してください。
       </template>
 
 	</div>
@@ -112,8 +112,8 @@ new Vue({
 
 <div class="col-md-6 form-group">
   <label for="message">メッセージ<br>
-  <small>(○○○社・○○○商品・○○○個について<br>
-  取扱メーカー商品以外の商品や機械についても ご気軽にお問合せください)</small></label>
+  <small>(○○○社・○○○商品・○○○個など<br>
+  取扱メーカー商品以外の商品や機械についてもご気軽にお問合せください)</small></label>
     <textarea 
     v-model="form.message"
     type="text" 
