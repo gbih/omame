@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: http://omame.com/sitemap.xml
