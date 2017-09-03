@@ -29,37 +29,39 @@ new Vue({
 <div class="row">
 
   <div class="col-md-6 dropdown form-group">
-   <label class="form-control-label">取扱メーカー</label>
+   <label class="form-control-label">商品カテゴリー</label>
     <select  id="one" class="custom-select form-control" v-model="form.selectedMaker">
-      <option class="form-control" value="">取扱メーカーの選択</option>
+      <option class="form-control" value="">商品カテゴリーの選択</option>
       <option class="form-control" v-for="(category_key, category_val) in form.catalog" :value="category_val" :key="category_key">{{category_val}}</option>
     </select>
   </div>
 
-
 	<div class="col-md-5 table-inverse-gray memo hidden-sm-down">
 
-
 	  <template v-if="form.selectedMaker">
-      取扱メーカー<br>
+      商品カテゴリー<br>
       <strong>{{ form.selectedMaker }}</strong>
       </template>
       <template v-else>
-      取扱メーカーを選択してください。<br>
-      取扱メーカー以外は[メッセージ]にご記入してください。
+      商品カテゴリーを選択してください。<br>
+      商品カテゴリー以外は[メッセージ]にご記入してください。
       </template>
 
 	</div>
 </div>
 
 
+
+
+
+
 <div class="row">
 
   <div class="col-md-6 dropdown form-group">
-    <label class="form-control-label">商品カテゴリー</label>
+    <label class="form-control-label">取扱メーカー</label>
     <select   class="custom-select form-control" :disabled="form.categories.length == 0" v-model="form.selectedCategory">
-      <option class="form-control" value="">商品カテゴリーの選択</option>
-      <option class="form-control" v-for="(product_key, product_val) in form.categories" :key="product_key">{{product_val}}</option>
+      <option class="form-control" value="">取扱メーカーの選択</option>
+      <option class="form-control" v-for="product_key in form.categories" :key="product_key">{{product_key}}</option>
     </select>
   </div>
 
@@ -67,42 +69,21 @@ new Vue({
 
 
 	  <template v-if="form.selectedCategory">
-        商品カテゴリー<br>
+        取扱メーカー<br>
         <strong>{{ form.selectedCategory }}</strong>
       </template>
       <template v-else>
-      商品カテゴリーを選択してください。<br>
-       取扱商品カテゴリー以外は[メッセージ]にご記入してください。
+      取扱メーカーを選択してください。<br>
+       取扱メーカー以外は[メッセージ]にご記入してください。
       </template>
 
 	</div>
 </div>
 
 
-<div class="row">
 
-  <div class="col-md-6 dropdown form-group">
-    <label class="form-control-label">商品</label>
-    <select   class="custom-select form-control" :disabled="form.products.length == 0" v-model="form.selectedProduct">
-      <option class="form-control" value="">商品の選択</option>
-      <option class="form-control" v-for="product_key in form.products" :key="product_key">{{product_key}}</option>
-    </select>
-  </div>
 
-	<div class="col-md-5 table-inverse-gray memo hidden-sm-down">
-	
 
-	  <template v-if="form.selectedCategory">
-        商品<br>
-        <strong>{{form.selectedProduct}}</strong>
-      </template>
-      <template v-else>
-       商品を選択してください。<br>
-       取扱商品以外は[メッセージ]にご記入してください。
-      </template>
-
-	</div>
-</div>
 
 
 <br>
@@ -147,8 +128,8 @@ new Vue({
 <div class="row">
 
 	<div class="col-md-6 form-group" 
-	  :class="{ 'has-danger': $v.form.company.$error, 
-	  'has-success': !$v.form.company.$invalid && $v.form.company.$dirty }" 
+	  :class="{ 'invalid-feedback': $v.form.company.$error, 
+	  'was-validated': !$v.form.company.$invalid && $v.form.company.$dirty }" 
 	  >
 	  <label class="form-control-label" for="form.company">{{form.companyTitle}}</label>
 	    <small v-if="$v.form.company.$error" class="form-control-feedback"> &nbsp; &nbsp;({{form.companyTitle}}は必須)</small>
@@ -158,7 +139,7 @@ new Vue({
 	  type="text" 
 	  class="form-control"
 	  :class="{ 
-	        'form-control-danger': $v.form.company.$error, 
+	        'invalid': $v.form.company.$error, 
 	        'form-control-success': !$v.form.company.$invalid && $v.form.company.$dirty
 	        }"
 	  v-model.trim="form.company" 
@@ -182,11 +163,12 @@ new Vue({
 
 
 
+
 <div class="row">
 
 <div class="col-md-6 form-group" 
   :class="{ 'has-danger': $v.form.dept.$error, 
-  'has-success': !$v.form.dept.$invalid && $v.form.dept.$dirty}" 
+  'was-validated': !$v.form.dept.$invalid && $v.form.dept.$dirty}" 
   >
   <label class="form-control-label" for="form.dept">{{form.deptTitle}}</label>
   <small v-if="$v.form.dept.$error" class="form-control-feedback">&nbsp; &nbsp;({{form.deptTitle}}は必須)</small>
@@ -195,8 +177,8 @@ new Vue({
   type="text" 
   class="form-control"
   :class="{ 
-        'form-control-danger': $v.form.dept.$error, 
-        'form-control-success': !$v.form.dept.$invalid && $v.form.dept.$dirty
+        'form-control is-invalid': $v.form.dept.$error, 
+        'form-control is-valid': !$v.form.dept.$invalid && $v.form.dept.$dirty
         }"
   v-model.trim="form.dept" 
   @blur="$v.form.dept.$touch()"
@@ -222,7 +204,7 @@ new Vue({
 <div class="row">
 
 <div class="col-md-6 form-group" 
-  :class="{ 'has-danger': $v.form.name.$error, 'has-success': !$v.form.name.$invalid }" >
+  :class="{ 'is-invalid': $v.form.name.$error, 'was-validated': !$v.form.name.$invalid }" >
   <label class="form-control-label" for="form.name">{{form.nameTitle}}  <small>【必須】</small></label>
   <small v-if="$v.form.name.$error" class="form-control-feedback">&nbsp; &nbsp;({{form.nameTitle}}は必須)</small>
   <input 
@@ -230,8 +212,8 @@ new Vue({
   type="text" 
   class="form-control"
   :class="{ 
-        'form-control-danger': $v.form.name.$error, 
-        'form-control-success': !$v.form.name.$invalid 
+        'form-control is-invalid': $v.form.name.$error, 
+        'form-control is-valid': !$v.form.name.$invalid 
         }"
   v-model.trim="form.name" 
   @blur="$v.form.name.$touch()"
@@ -259,7 +241,7 @@ new Vue({
 <div class="row">
 
 <div class="col-md-6 form-group" 
-  :class="{ 'has-danger': $v.form.furigana.$error, 'has-success': !$v.form.furigana.$invalid }" >
+  :class="{ 'has-danger': $v.form.furigana.$error, 'was-validated': !$v.form.furigana.$invalid }" >
   <label class="form-control-label" for="form.furigana">{{form.furiganaTitle}} <small>【必須】</small></label>
   <small v-if="$v.form.furigana.$error" class="form-control-feedback">&nbsp; &nbsp;({{form.furiganaTitle}}は必須)</small>
   <input 
@@ -267,8 +249,8 @@ new Vue({
   type="text" 
   class="form-control"
   :class="{ 
-        'form-control-danger': $v.form.furigana.$error, 
-        'form-control-success': !$v.form.furigana.$invalid 
+        'form-control is-invalid': $v.form.furigana.$error, 
+        'form-control is-valid': !$v.form.furigana.$invalid 
         }"
   v-model.trim="form.furigana" 
   @blur="$v.form.furigana.$touch()"
@@ -294,7 +276,7 @@ new Vue({
 <div class="row">
 
 <div class="col-md-6 form-group" 
-  :class="{ 'has-danger': $v.form.email.$error, 'has-success': !$v.form.email.$invalid }" >
+  :class="{ 'has-danger': $v.form.email.$error, 'was-validated': !$v.form.email.$invalid }" >
   <label class="form-control-label" for="form.email">{{form.emailTitle}} <small>【必須】</small></label>
   <small v-if="$v.form.email.$error" class="form-control-feedback">&nbsp; &nbsp;({{form.emailTitle}}は必須)</small>
   <input 
@@ -302,8 +284,8 @@ new Vue({
   type="text" 
   class="form-control"
   :class="{ 
-        'form-control-danger': $v.form.email.$error, 
-        'form-control-success': !$v.form.email.$invalid 
+        'form-control is-invalid': $v.form.email.$error, 
+        'form-control is-valid': !$v.form.email.$invalid 
         }"
   v-model.trim="form.email" 
   @blur="$v.form.email.$touch()"
@@ -329,7 +311,7 @@ new Vue({
 <div class="row">
 
 <div class="col-md-6 form-group" 
-  :class="{ 'has-danger': $v.form.phone.$error, 'has-success': !$v.form.phone.$invalid }" >
+  :class="{ 'has-danger': $v.form.phone.$error, 'was-validated': !$v.form.phone.$invalid }" >
   <label class="form-control-label" for="form.phone">{{form.phoneTitle}} <small>【必須】</small></label>
   <small v-if="$v.form.phone.$error" class="form-control-feedback">&nbsp; &nbsp;({{form.phoneTitle}}は必須)</small>
   <input 
@@ -337,8 +319,8 @@ new Vue({
   type="text" 
   class="form-control"
   :class="{ 
-        'form-control-danger': $v.form.phone.$error, 
-        'form-control-success': !$v.form.phone.$invalid 
+        'form-control is-invalid': $v.form.phone.$error, 
+        'form-control is-valid': !$v.form.phone.$invalid 
         }"
   v-model.trim="form.phone" 
   @blur="$v.form.phone.$touch()"
@@ -408,86 +390,13 @@ new Vue({
 
 
 
-<!--
-// <button 
-//   type="submit" 
-//   class="btn btn-primary" 
-//   @click.prevent="validateBeforeSubmit(form)"> 
-//   &nbsp;&nbsp;&nbsp;送信&nbsp;&nbsp;&nbsp;
-// </button>
--->
 
 
 
 
 
 
-<!--
 
-<h5>フォーム確認:</h5>
-<table class="table table-sm table-inverse-gray">
-
-  <tbody>
-    <tr>
-      <td class="w-25 showTitle">取扱メーカー:</td>
-      <td class="w-75 showMessage">{{form.selectedMaker}}</td>
-    </tr>
-    <tr>
-      <td class="w-25 showTitle">商品カテゴリー:</td>
-      <td class="w-75 showMessage">{{form.selectedCategory}}</td>
-    </tr>
-    <tr>
-      <td class="w-25 showTitle">商品:</td>
-      <td class="w-75 showMessage">{{form.selectedProduct}}</td>
-    </tr>
-
-    <tr>
-      <td class="w-25 showTitle">{{form.companyTitle}}:</td>
-      <td class="w-75 showMessage">{{form.company}}</td>
-    </tr>
-    <tr>
-      <td class="w-25 showTitle">{{form.deptTitle}}:</td>
-      <td class="w-75 showMessage">{{form.dept}}</td>
-    </tr>
-    <tr>
-      <td class="w-25 showTitle">{{form.nameTitle}}:</td>
-      <td class="w-75 showMessage">{{form.name}}</td>
-    </tr>
-    <tr>
-      <td class="w-25 showTitle">{{form.furiganaTitle}}:</td>
-      <td class="w-75 showMessage">{{form.furigana}}</td>
-    </tr>
-    <tr>
-      <td class="w-25 showTitle">{{form.emailTitle}}:</td>
-      <td class="w-75 showMessage">{{form.email}}</td>
-    </tr>
-    <tr>
-      <td class="w-25 showTitle">{{form.phoneTitle}}:</td>
-      <td class="w-75 showMessage">{{form.phone}}</td>
-    </tr>
-
-    <tr>
-      <td class="w-25 showTitle">連絡方法:</td>
-      <td>
-
-      <template v-if="form.prefer == 'byemail'">
-        {{ form.preferTitleEmail }}
-      </template>
-      <template v-else>
-        {{ form.preferTitlePhone }}
-      </template>
-      <span>を優先する</span>
-      </td>
-    </tr>
-
-    <tr>
-      <td class="w-25 showTitle">{{form.messageTitle}}:</td>
-      <td class="w-75 showMessage">{{form.message}}</td>
-    </tr>
-  </tbody>
-</table>
-
--->
 
 
 
@@ -528,20 +437,8 @@ new Vue({
 </template>
 
 
-<!--
-for testing:
-<pre>operationSuccess: {{operationSuccess}}</pre>
-<button @click.prevent="operationSuccess = !operationSuccess">Switch</button>
--->
-
-<!--
-<pre>
-{{$v.form}}
-</pre>
--->
 
 
-<br><br>
 </form>
 
 
@@ -567,41 +464,79 @@ for testing:
         selectedProduct: '',
 
         catalog: {
-          "株式会社ミツトヨ": {
-            "Category 1": ["C1-Product 1", "C1-Product 2", "C1-Product 3", "C1-Product 4"],
-            "Category 2": ["C2-Product 1", "C2-Product 2", "C2-Product 3"],
-            "Category 3": ["C3-Product 1", "C3-Product 2", "C3-Product 3", "C3-Product 4", "C3-Product 5"],
-            "Category 4": ["C4 Product 1"],
-            "Category 5": ["C1-Product 1", "C1-Product 2", "C1-Product 3"]
-          },
-          "日本精工株式会社(NSK)": {
-            "Category 1": ["C1-Product 1", "C1-Product 2", "C1-Product 3", "C1-Product 4"],
-            "Category 2": ["C2-Product 1", "C2-Product 2", "C2-Product 3"],
-            "Category 3": ["C3-Product 1", "C3-Product 2", "C3-Product 3", "C3-Product 4", "C3-Product 5"]
-          },
-          "株式会社タンガロ": {
-            "Category 1": ["C1-Product 1", "C1-Product 2", "C1-Product 3", "C1-Product 4"],
-            "Category 2": ["C2-Product 1", "C2-Product 2", "C2-Product 3"],
-            "Category 3": ["C3-Product 1", "C3-Product 2", "C3-Product 3", "C3-Product 4", "C3-Product 5"],
-            "Category 4": ["C4 Product 1"]
-          },
-          "株式会社不二越": {
-            "Category 1": ["C1-Product 1", "C1-Product 2", "C1-Product 3", "C1-Product 4"],
-            "Category 2": ["C2-Product 1", "C2-Product 2", "C2-Product 3"],
-            "Category 3": ["C3-Product 1", "C3-Product 2", "C3-Product 3", "C3-Product 4", "C3-Product 5"],
-            "Category 4": ["C4 Product 1"],
-            "Category 5": ["C1-Product 1", "C1-Product 2", "C1-Product 3"]
-          },
-          "日東工器株式会社": {
-            "Category 1": ["C1-Product 1", "C1-Product 2", "C1-Product 3", "C1-Product 4"],
-            "Category 2": ["C2-Product 1", "C2-Product 2", "C2-Product 3"],
-            "Category 3": ["C3-Product 1", "C3-Product 2", "C3-Product 3", "C3-Product 4", "C3-Product 5"],
-            "Category 4": ["C4 Product 1"]
-          },
-          "株式会社キト": {
-            "Category 1": ["C1-Product 1", "C1-Product 2", "C1-Product 3", "C1-Product 4"],
-            "Category 2": ["C2-Product 1", "C2-Product 2", "C2-Product 3"]
-          }
+          
+"鋲螺(ネジ)類": [
+"日本鋲螺(株)", 
+"(株)ヒラノファステック", 
+"松金工業(株)", 
+"ヨット印・ダイワ", 
+"(株)協栄製作所",
+"ヨット印・ダイワ",
+"(株)協栄製作所",
+"金剛鋲螺(株)",
+"濱中ナット販売(株)",
+"江浦製作所",
+"日本ファスナー",
+"アンブラコ",
+"極東製作所",
+"光精工(株)",
+"岸和田ステンレス",
+"東和工業(株)",
+"中村螺子(株)",
+"松本ナット工業(株)",
+"紀州ファスナー",
+"(株)冨士精密(Uナット)",
+"西精工(株)",
+"ケーエム精工(株)"
+],
+
+
+"測定工具": [
+"愛知時計電機(株)",
+"安立計器(株)",
+"(株)エーアンドディ",
+"新潟精機(SK)",
+"(株)オーツカ光学",
+"大西測定工具製作所",
+"(株)大場精機製作所",
+"(株)オーバル",
+"(株)大菱計器製作所",
+"(株)岡野製作所",
+"(株)尾崎製作所",
+"(株)小野測器",
+"オリンパス(株)",
+"(株)ガステック",
+"カネテック(株)",
+"(株)中村製作所",
+"(株)クボタ",
+"(株)ＫＤＳ",
+"新コスモス電機(株)",
+"シンワ測定(株)",
+"測範社(株)",
+"ソニープレシジョンテクノロジー(株)",
+"(株)第一計器製作所",
+"(株)第一測範製作所",
+"(株)田中衡機工業所",
+"(株)チノー",
+"(株)テクロック",
+"東海産業(株)",
+"東京計装(株)",
+"(株)東京精密",
+"(株)東日製作所",
+"(株)トプコン",
+"長野計器(株)",
+"日油技研工業(株)",
+"日本フローセル(株)",
+"(株)ミツトヨ",
+"山田照明(株)",
+"(株)山本電機製作所",
+"横河M&C",
+"ライン精機(株)",
+"理研計器(株)"
+],
+
+
+
         },
 
 
@@ -811,27 +746,31 @@ for testing:
       this.form.categories = [];
       this.form.products = [];
       this.form.selectedCategory = "";
-      this.form.selectedProduct = "";
+      // this.form.selectedProduct = "";
 
       // Populate list of categories in the second dropdown
       console.log("form.selectedMaker.length TEST: " + this.form.selectedMaker.length);
       if (this.form.selectedMaker.length > 0) {
         this.form.categories = this.form.catalog[this.form.selectedMaker]
+        console.log("Test 1 - Category:" + this.form.categories );
+
       }
     },
     'form.selectedCategory': function (form) {
       // Clear previously selected values
       this.form.products = [];
       this.form.selectedProduct = "";
-
+        console.log("Test 2 - Maker:" + this.form.selectedCategory );
       // Now we have a category and product. Make a list of products in the last dropdown
-      if (this.form.selectedCategory.length > 0) {
-        this.form.products = this.form.catalog[this.form.selectedMaker][this.form.selectedCategory]
-      }
+      // if (this.form.selectedCategory.length > 0) {
+      //   this.form.products = this.form.catalog[this.form.selectedMaker][this.form.selectedCategory]
+      //   console.log("HERE2:" + this.form.products );
+      // }
+
     },
-    'form.selectedProduct': function (form) {
-      console.log(this.form.selectedProduct);
-    }
+    // 'form.selectedProduct': function (form) {
+    //   console.log(this.form.selectedProduct);
+    // }
 
   }
 
