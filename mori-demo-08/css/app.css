@@ -5558,6 +5558,16 @@ a.text-dark:focus, a.text-dark:hover {
 body {
   padding-top: 3.4rem; }
 
+.bd-example {
+  position: relative;
+  padding: 1rem;
+  margin: 1rem -15px;
+  border: solid #f7f7f9;
+  border-width: .2rem 0 0; }
+
+.bd-example-tabs .nav-tabs {
+  margin-bottom: 1rem; }
+
 .navbar-brand, .nav > li > a {
   padding: 6px; }
 
