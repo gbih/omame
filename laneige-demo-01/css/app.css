@@ -5027,6 +5027,32 @@ Bootstrap overrides
 Copy variables from `_variables.scss` to this file to override default values
 without modifying source files. 
 */
+.color-gray {
+  background-color: gray; }
+a.nav-link {
+  color: #FFF;
+  text-decoration: none;
+  border-bottom: transparent solid 4px;
+  padding-bottom: 5px;
+  padding-top: 5px; }
+a:hover.nav-link {
+  color: #FFF;
+  border-bottom: #D3D3D3 solid 4px; }
+.underline {
+  color: #008489;
+  text-decoration: underline;
+  border-bottom: 4px solid #008489 !important;
+  padding-bottom: 5px;
+  padding-top: 5px; }
+.nav-link {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  margin-right: 8px;
+  margin-right: 0.5rem;
+  margin-left: 8px;
+  margin-left: 0.5rem; }
+.nav-link {
+  padding: 0; }
 /* FORM */
 .form-group {
   margin: 17.6px;
@@ -5074,12 +5100,16 @@ without modifying source files.
   opacity: 1; }
 .form-control:disabled {
   cursor: not-allowed; }
+/* phone */
 /* Marketing Theme */
 /* footer block */
 .app-footer {
   background-color: #262F36; }
 .app-footer a {
   color: #fff; }
+.footer-text {
+  font-size: 14.4px;
+  font-size: 0.9rem; }
 /* general block overrrides */
 @media (max-width: 768px) {
   .block .lead {
@@ -5095,29 +5125,23 @@ without modifying source files.
   color: inherit; }
 .block-inverse .btn-outline.btn-secondary {
   color: #fff;
-  background-image: none;
   background-color: transparent;
+  background-image: none;
   border-color: #fff; }
 .block-inverse .btn-outline.btn-secondary:hover {
   color: #fff;
   background-color: #fff;
   border-color: #fff; }
 .block-inverse .btn-outline.btn-secondary:focus, .block-inverse .btn-outline.btn-secondary.focus {
+  -webkit-box-shadow: 0 0 0 3px rgba(255, 255, 255, .5);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .5); }
+.block-inverse .btn-outline.btn-secondary.disabled, .block-inverse .btn-outline.btn-secondary:disabled {
+  color: #fff;
+  background-color: transparent; }
+.block-inverse .btn-outline.btn-secondary:active, .block-inverse .btn-outline.btn-secondary.active, .show > .block-inverse .btn-outline.btn-secondary.dropdown-toggle {
   color: #fff;
   background-color: #fff;
   border-color: #fff; }
-.block-inverse .btn-outline.btn-secondary:active, .block-inverse .btn-outline.btn-secondary.active, .open > .block-inverse .btn-outline.btn-secondary.dropdown-toggle {
-  color: #fff;
-  background-color: #fff;
-  border-color: #fff; }
-.block-inverse .btn-outline.btn-secondary:active:hover, .block-inverse .btn-outline.btn-secondary:active:focus, .block-inverse .btn-outline.btn-secondary:active.focus, .block-inverse .btn-outline.btn-secondary.active:hover, .block-inverse .btn-outline.btn-secondary.active:focus, .block-inverse .btn-outline.btn-secondary.active.focus, .open > .block-inverse .btn-outline.btn-secondary.dropdown-toggle:hover, .open > .block-inverse .btn-outline.btn-secondary.dropdown-toggle:focus, .open > .block-inverse .btn-outline.btn-secondary.dropdown-toggle.focus {
-  color: #fff;
-  background-color: #d4d4d4;
-  border-color: #bfbfbf; }
-.block-inverse .btn-outline.btn-secondary.disabled:focus, .block-inverse .btn-outline.btn-secondary.disabled.focus, .block-inverse .btn-outline.btn-secondary:disabled:focus, .block-inverse .btn-outline.btn-secondary:disabled.focus {
-  border-color: white; }
-.block-inverse .btn-outline.btn-secondary.disabled:hover, .block-inverse .btn-outline.btn-secondary:disabled:hover {
-  border-color: white; }
 .block-inverse .btn-outline.btn-secondary:focus, .block-inverse .btn-outline.btn-secondary.focus, .block-inverse .btn-outline.btn-secondary:hover, .block-inverse .btn-outline.btn-secondary:active, .block-inverse .btn-outline.btn-secondary.active, .block-inverse .btn-outline.btn-secondary .open > .dropdown-toggle, .block-inverse .btn-outline:focus, .block-inverse .btn-outline.focus, .block-inverse .btn-outline:hover, .block-inverse .btn-outline:active, .block-inverse .btn-outline.active, .block-inverse .btn-outline .open > .dropdown-toggle {
   color: #000; }
 .block-inverse .btn-outline.btn-secondary:focus:hover, .block-inverse .btn-outline.btn-secondary:focus:focus, .block-inverse .btn-outline.btn-secondary:focus.focus, .block-inverse .btn-outline.btn-secondary.focus:hover, .block-inverse .btn-outline.btn-secondary.focus:focus, .block-inverse .btn-outline.btn-secondary.focus.focus, .block-inverse .btn-outline.btn-secondary:hover:hover, .block-inverse .btn-outline.btn-secondary:hover:focus, .block-inverse .btn-outline.btn-secondary:hover.focus, .block-inverse .btn-outline.btn-secondary:active:hover, .block-inverse .btn-outline.btn-secondary:active:focus, .block-inverse .btn-outline.btn-secondary:active.focus, .block-inverse .btn-outline.btn-secondary.active:hover, .block-inverse .btn-outline.btn-secondary.active:focus, .block-inverse .btn-outline.btn-secondary.active.focus, .block-inverse .btn-outline.btn-secondary .open > .dropdown-toggle:hover, .block-inverse .btn-outline.btn-secondary .open > .dropdown-toggle:focus, .block-inverse .btn-outline.btn-secondary .open > .dropdown-toggle.focus, .block-inverse .btn-outline:focus:hover, .block-inverse .btn-outline:focus:focus, .block-inverse .btn-outline:focus.focus, .block-inverse .btn-outline.focus:hover, .block-inverse .btn-outline.focus:focus, .block-inverse .btn-outline.focus.focus, .block-inverse .btn-outline:hover:hover, .block-inverse .btn-outline:hover:focus, .block-inverse .btn-outline:hover.focus, .block-inverse .btn-outline:active:hover, .block-inverse .btn-outline:active:focus, .block-inverse .btn-outline:active.focus, .block-inverse .btn-outline.active:hover, .block-inverse .btn-outline.active:focus, .block-inverse .btn-outline.active.focus, .block-inverse .btn-outline .open > .dropdown-toggle:hover, .block-inverse .btn-outline .open > .dropdown-toggle:focus, .block-inverse .btn-outline .open > .dropdown-toggle.focus {
@@ -5324,29 +5348,31 @@ h6, .h6 {
 .display-1 {
   font-size: 96px;
   font-size: 6rem;
-  font-weight: 300; }
+  font-weight: 300;
+  line-height: 1.1; }
 .display-2 {
   font-size: 88px;
   font-size: 5.5rem;
-  font-weight: 300; }
+  font-weight: 300;
+  line-height: 1.1; }
 .display-3 {
   font-size: 72px;
   font-size: 4.5rem;
-  font-weight: 300; }
+  font-weight: 300;
+  line-height: 1.1; }
 .display-4 {
   font-size: 56px;
   font-size: 3.5rem;
-  font-weight: 300; }
+  font-weight: 300;
+  line-height: 1.1; }
 h1.text-uppercase, h2.text-uppercase, h3.text-uppercase, h4.text-uppercase, h5.text-uppercase, h6.text-uppercase, .h1.text-uppercase, .h2.text-uppercase, .h3.text-uppercase, .h4.text-uppercase, .h5.text-uppercase, .h6.text-uppercase {
   letter-spacing: .15em; }
 h1 small, h1 .small, h2 small, h2 .small, h3 small, h3 .small, h4 small, h4 .small, h5 small, h5 .small, h6 small, h6 .small, .h1 small, .h1 .small, .h2 small, .h2 .small, .h3 small, .h3 .small, .h4 small, .h4 .small, .h5 small, .h5 .small, .h6 small, .h6 .small {
   font-weight: inherit; }
 h6, .h6 {
   margin-bottom: 5px;
-  color: #bbbbbb;
+  color: white;
   text-transform: uppercase; }
-strong {
-  font-weight: bold; }
 strong {
   font-weight: bold; }
 .item-title {

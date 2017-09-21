@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="jp">
-  <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
     <!-- meta tags -->
     <meta charset="utf-8">
@@ -50,6 +50,8 @@
 <body>
 
 
+
+
 <style>
 
 body {
@@ -82,8 +84,10 @@ body {
     <ul class="navbar-nav mr-auto bd-navbar"><li></li></ul>
 
     <ul class="navbar-nav text-right mr-1">
+
       <li class="nav-item">
 <a class="nav-link" href="rooms.html">お部屋</a>      </li>
+
       <li class="nav-item">
 <a class="nav-link" href="facilities.html">館内設備</a>      </li>
       <li class="nav-item">
@@ -141,6 +145,31 @@ html {
 
 </style>
 
+
+<script>
+// Picture element HTML5 shiv
+document.createElement("picture");
+
+// preload first image
+var mq = window.matchMedia( "(min-width: 450px)" );
+
+if (mq.matches) {
+  // window width is at least min-width
+  my_image = new Image();
+    my_image.src = 'images/mtn/riding.jpg';
+    //console.log("BIG IMAGE");
+} else {
+  // window width is less than min-width
+  my_image = new Image();
+    my_image.src = 'images/mtn/riding.jpg';
+    //console.log("SMALL IMAGE");
+}
+</script>
+
+
+
+
+
 <div class="bg banner"><!-- start banner -->
 
   <br>
@@ -154,7 +183,8 @@ html {
           <strong class="h1 text-ribbon text-ribbon-success block-title">
           <span class="white">苗場 ラ・ネージュ</span><br>
           <span class="lead mb-4 text-muted">苗場スキー場徒歩 2 分！<br>
-          自然に囲まれたおしゃれなペンション。</span>
+          自然に囲まれたおしゃれなペンション。
+      </span>
           </strong>
       </div>
 
@@ -732,6 +762,90 @@ color: white;
 
     </div>
 </div>
+
+
+
+<script>
+
+var items = [
+    [{
+        "width": 832,
+        "url": "images/mtn/riding.jpg"
+    },
+    {
+        "width": 416,
+        "url": "images/mtn/riding.jpg"
+    }],
+
+    [{
+        "width": 832,
+        "url": "images/laneige/outside.jpg"
+    },
+    {
+        "width": 416,
+        "url": "images/laneige/outside.jpg"
+    }],
+
+    [{
+        "width": 832,
+        "url": "images/laneige/naeba-yama.jpg"
+    },
+    {
+        "width": 416,
+        "url": "images/laneige/naeba-yama.jpg"
+    }],
+
+    [{
+        "width": 832,
+        "url": "images/laneige/barcounter.jpg"
+    },
+    {
+        "width": 416,
+        "url": "images/laneige/barcounter.jpg"
+    }],
+
+
+    [{
+        "width": 832,
+        "url": "images/mtn/2011.01.19_10.43.40_88_f5.6_800_20mm.jpg"
+    },
+    {
+        "width": 416,
+        "url": "images/mtn/2011.01.19_10.43.40_88_f5.6_800_20mm.jpg"
+    }],
+
+
+
+    [{
+        "width": 832,
+        "url": "images/laneige/ski-area.jpg"
+    },
+    {
+        "width": 416,
+        "url": "images/laneige/ski-area.jpg"
+    }],
+];
+/* have to hard-set other option directly in .js script */
+
+var options = {
+    duration: 6000,
+    transitionDuration: 1000,
+    fade: 2000,
+    preload: 0,
+    start: 0
+};
+
+
+
+
+// start Backstretch
+var slideshow = $(".banner").backstretch(items, options);
+// 
+</script>
+
+
+
+
 <!--/ main content -->
 
 
@@ -743,31 +857,34 @@ color: white;
 
 
 <footer>
-  <div class="block block-inverse app-footer">
+  <div class="block block-inverse app-footer footer-text">
+
       <div class="container">
           <div class="row">
-              <div class="col-md-7 mb-6">
+              <div class="col-md-3 mb-6">
                   <ul class="list-unstyled list-spaced">
                       <li class="mb-2">
-                          <h6 class="text-uppercase"><span class="white"><a href="index.html">苗場 ラ・ネージュ</a></span></h6>
+                          <h6 class="text-uppercase"><span class="white"><img src="images/logo/illus.jpg" width="200"><br><a href="index.html">苗場 ラ・ネージュ</a></span></h6>
                       </li>
-                      <li class="text-muted">
 
-                          新潟県南魚沼郡湯沢町大字三国 469-51
-                          <br> 住所〒949-6212新潟県南魚沼郡湯沢町三国469-51
-                          <br> TEL: 025-789-2295
-                          <br> FAX: 0257-89-5598
-                          <br> 交通アクセス越後湯沢駅より路線バスで40分
-
-                          <br> 駐車場有り 10台 無料
-                          
-                      </li>
                   </ul>
               </div>
 
-              <div class="col-sm-1"></div>
+              <div class="col-md-6">
+                 <ul class="list-unstyled list-spaced">
+                          <li class="text-muted">
+                          新潟県南魚沼郡湯沢町大字三国 469-51
+                          <br>住所〒949-6212新潟県南魚沼郡湯沢町三国469-51
+                          <br>TEL: 025-789-2295
+                          <br>FAX: 0257-89-5598
+                          <br>交通アクセス越後湯沢駅より路線バスで40分
+                          <br>駐車場有り 10台 無料
+                          
+                      </li>
+                    </ul>
+              </div>
 
-              <div class="col-md-4 mb-5">
+              <div class="col-md-3 mb-5">
                   <ul class="list-unstyled list-spaced">
 
                       <li class="text-muted"><a href="rooms.html">お部屋</a></li>
