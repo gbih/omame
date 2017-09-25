@@ -132,32 +132,175 @@ body {
 </div>
 
 
-<div class="block block-secondary app-iphone-block">
-    <div class="container">
-        <div class="row app-align-center">
+<br>
 
-            <div class="col-sm-6 hidden-sm-down">
-                <img class="app-iphone img-fluid" src="images/laneige/dining.jpg" >
-            </div>
 
-            <div class="col-md-6 offset-md-1 col-sm-12 offset-sm-0">
-                <h6 class="text-muted text-uppercase">2 MINUTES TO NAEBA SKI AREA</h6>
-                <h3>苗場スキー場徒歩2分！自然に囲まれたおしゃれなペンション。 </h3>
-                <p class="lead mb-4">ゲレンデが一望できる高立地に立つラネージュ。当然苗場スキー場へは歩いて2分！自家製の100%コシヒカリ米と野菜を使った和洋折衷の家庭料理をコース風にお出しします。皆さんのお越しをお待ちしております。</p>
-                <div class="row hidden-md-down">
-                    <div class="col-sm-6 mb-3">
-                        <h5>Views</h5>
-                        <p>Our dining area and outdoor deck has fantastic views of the Naeba area.</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <h5>Convenience</h5>
-                        <p>We are a short 2-minute walk to the Naeba ski-area.</p>
-                    </div>
-                </div>
-            </div>
+<div class="container">
+	<div class="row">
+<!-- form -->
+		<div class="col-md-6">
+
+
+
+<form id="myForm" name="myForm" method="post" action="#" class="form-white">
+
+      <div class="form-control">
+
+          <center>
+              <label for="firstname" class="h4 m-a-0">予約お問合せ</label>
+          </center>
+
+
+          <div class="form-group has-feedback control-label">
+              <div class="input-group">
+                  <input type="text" class="form-control mb-0" name="firstname" id="firstname" placeholder="お名前" required>
+              </div>
+              <span class="icon form-control-feedback" aria-hidden="true"></span>
+          </div>
+
+
+          <div class="form-group has-feedback control-label">
+              <div class="input-group">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="メールアドレス" required>
+              </div>
+              <span class="icon form-control-feedback" aria-hidden="true"></span>
+          </div>
+
+
+          <div class="form-group has-feedback control-label">
+              <div class="input-group">
+
+                  <input type="text" class="form-control" name="phone" id="phone" placeholder="電話" required>
+              </div>
+              <span class="icon form-control-feedback" aria-hidden="true"></span>
+          </div>
+
+
+          <div class="form-group has-feedback control-label">
+              <select id="guests" name="guests" class="form-control" required>
+                  <option value="" hidden label="支払い方法" disabled selected>Payment</option>
+                  <option value="1">Cash</option>
+                  <option value="2">Visa</option>
+                  <option value="3">MasterCard</option>
+              </select>
+          </div>
+
+
+
+          <div class="form-group dropdown has-feedback control-label">
+              <select id="guests" name="guests" class="form-control" required>
+                  <option value="" hidden label="客室タイプ" disabled selected>Room</option>
+                  <option class="form-control" value="1">ゲレンデ側　ツイン</option>
+                  <option value="2">ゲレンデ側　ダブル</option>
+                  <option value="3">ゲレンデ側　4ベッド</option>
+                  <option value="4">2ベッド＋ダブル＋ロフト</option>
+                  <option value="5">2ベッド＋ロフト</option>
+                  <option value="6">3ベッド＋ロフト</option>
+              </select>
+          </div>
+
+
+
+          <div class="form-group has-feedback control-label">
+
+
+              <div id="container-date" class="m-a-0 p-a-0">
+                  <div class="input-daterange input-group m-a-0 p-a-0">
+                      <input type="text" class="form-control readonly" id="checkin" name="checkin" placeholder="チェックイン" required />
+                      <span class="input-group-addon"><span class="icon icon-arrow-right" aria-hidden="true"></span></span>
+                      <input type="text" class="form-control readonly" id="checkout" name="checkout" placeholder="チェックアウト" required />
+                  </div>
+              </div>
+
+          </div>
+
+
+          <div class="form-group has-feedback control-label">
+              <select id="guests" name="guests" class="form-control" required>
+                  <option value="" hidden label="人数" disabled selected>Number of Guests</option>
+                  <option value="1">1 名</option>
+                  <option value="2">2 名</option>
+                  <option value="3">3 名</option>
+                  <option value="4">4 名</option>
+                  <option value="5">5 名</option>
+                  <option value="6">6 名</option>
+                  <option value="7">7 名</option>
+                  <option value="8">8 名</option>
+                  <option value="9">9 名</option>
+                  <option value="10">+10 名</option>
+              </select>
+          </div>
+
+           <div class="form-group">
+              <textarea id="message" name="message" class="form-control" rows="10" placeholder="コメント"></textarea>
+          </div>
+
+
+
+
+          <div class="form-group">
+              <input type="hidden" name="language" value="en">
+
+              <button id="submit" type="submit" class="mt-3 btn btn-primary btn-lg btn-block">予約お問合せ</button>
+              <div class="clearfix"></div>
+          </div>
+
+      </div>
+  </form>
+
+<br><br>
+
+</div>
+
+<div class="col-md-6">
+
+
+
+	<h4>全室バストイレ・全室シャワー・全室暖房</h4>
+<br>
+   
+
+
+        <div class="px-2 mb-0">
+            <h6 class="text-muted text-uppercase mb-1">ゲレンデ側　ツイン</h6>
+            <h5>1人1泊: 6,250円</h5>
+            <p class="pb-2">2 Queen-beds, with bathroom</p>
         </div>
 
-    </div>
+
+        <div class="px-2 mb-0">
+            <h6 class="text-muted text-uppercase mb-1">ゲレンデ側　ツイン</h6>
+            <h5>1人1泊: 6,250円</h5>
+            <p class="pb-2">2 Queen-beds, with bathroom</p>
+        </div>
+
+        <div class="px-2 mb-0">
+            <h6 class="text-muted text-uppercase mb-1">ゲレンデ側　ツイン</h6>
+            <h5>1人1泊: 6,250円</h5>
+            <p class="pb-2">2 Queen-beds, with bathroom</p>
+        </div>
+
+        <div class="px-2 mb-0">
+            <h6 class="text-muted text-uppercase mb-1">ゲレンデ側　ツイン</h6>
+            <h5>1人1泊: 6,250円</h5>
+            <p class="pb-2">2 Queen-beds, with bathroom</p>
+        </div>
+
+        <div class="px-2 mb-0">
+            <h6 class="text-muted text-uppercase mb-1">ゲレンデ側　ツイン</h6>
+            <h5>1人1泊: 6,250円</h5>
+            <p class="pb-2">2 Queen-beds, with bathroom</p>
+        </div>
+
+        <div class="px-2 mb-0">
+            <h6 class="text-muted text-uppercase mb-1">ゲレンデ側　ツイン</h6>
+            <h5>1人1泊: 6,250円</h5>
+            <p class="pb-2">2 Queen-beds, with bathroom</p>
+        </div>
+
+</div>
+		<!-- form -->
+	</div>
 </div>
 
 
@@ -168,16 +311,6 @@ body {
 
 
 
-<div class="block block-inverse app-high-praise OF-cover" style="background-image: url(images/laneige/dining.jpg);">
-    <div class="container">
-        <div class="row app-align-center py-3">
-            <div class="col-sm-5 push-sm-7 py-5">
-
-
-            </div>
-        </div>
-    </div>
-</div>
 
 
 
@@ -187,120 +320,6 @@ body {
 
 
 
-
-
-
-
-
-
-<div class="block app-price-plans">
-    <div class="container text-center">
-
-        <div class="row mb-5">
-            <div class="col-12">
-                <h6 class="text-muted text-uppercase mb-2">ROOMS</h6>
-                <h3>全室バストイレ・全室シャワー・全室暖房</h3>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-4 px-4 pb-2 mb-5">
-                <div class="px-2 mb-2">
-                    <h6 class="text-muted text-uppercase mb-4">ゲレンデ側　ツイン</h6>
-                    <h2>4,000 yen / person</h2>
-                    <p class="pb-2">Single and Couple</p>
-                </div>
-                <ul class="list-unstyled list-bordered text-xs-left my-4">
-                    <li class="py-4"><strong>2 Queen-beds, with bathroom</strong>
-                    </li>
-                    <li class="py-4"><strong>9am-5pm</strong> technical supprt</li>
-                    <li class="py-4"><strong>Public</strong> API access</li>
-                </ul>
-
-            </div>
-
-            <div class="col-md-4 px-4 pb-2 mb-5">
-                <div class="px-2">
-                    <h6 class="text-muted text-uppercase mb-4">ゲレンデ側　ダブル</h6>
-                    <h2>4,500 yen / person</h2>
-                    <p class="pb-2">Single and Couple</p>
-                </div>
-
-                <ul class="list-unstyled list-bordered text-xs-left my-4">
-                    <li class="py-4"><strong>2 single beds, with bathroom</strong>
-                    </li>
-                    <li class="py-4"><strong>24/7</strong> technical supprt</li>
-                    <li class="py-4"><strong>Public</strong> API access</li>
-                </ul>
-
-            </div>
-
-            <div class="col-md-4 px-4 pb-1 mb-5">
-                <div class="px-2">
-                    <h6 class="text-muted text-uppercase mb-4">ゲレンデ側　4ベッド</h6>
-                    <h2>5,000 yen / person</h2>
-                    <p class="pb-2">Single and Couple</p>
-                </div>
-
-                <ul class="list-unstyled list-bordered text-xs-left my-4">
-                    <li class="py-4"><strong>Unlimited</strong> monthly requests</li>
-                    <li class="py-4"><strong>24/7</strong> technical supprt</li>
-                    <li class="py-4"><strong>Public &amp; Private</strong> API access</li>
-                </ul>
-
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-4 px-4 pb-2 mb-5">
-                <div class="px-2 mb-2">
-                    <h6 class="text-muted text-uppercase mb-4">2ベッド＋ダブル＋ロフト</h6>
-                    <h2>6,000 yen / person</h2>
-                    <p class="pb-2">Perfect for a family</p>
-                </div>
-
-                <ul class="list-unstyled list-bordered text-xs-left my-4">
-                    <li class="py-4"><strong>2 Single-beds & 1 Double-bed + Loft</strong>
-                    </li>
-                    <li class="py-4"><strong>9am-5pm</strong> technical supprt</li>
-                    <li class="py-4"><strong>Public</strong> API access</li>
-                </ul>
-
-            </div>
-
-            <div class="col-md-4 px-4 pb-2 mb-5">
-                <div class="px-2">
-                    <h6 class="text-muted text-uppercase mb-4">2ベッド＋ロフト</h6>
-                    <h2>6,000 yen / person</h2>
-                    <p class="pb-2">Family-size</p>
-                </div>
-
-                <ul class="list-unstyled list-bordered text-xs-left my-4">
-                    <li class="py-4"><strong>100k</strong> monthly requests</li>
-                    <li class="py-4"><strong>24/7</strong> technical supprt</li>
-                    <li class="py-4"><strong>Public</strong> API access</li>
-                </ul>
-
-            </div>
-
-            <div class="col-md-4 px-4 pb-1 mb-5">
-                <div class="px-2">
-                    <h6 class="text-muted text-uppercase mb-4">3ベッド＋ロフト</h6>
-                    <h2>7,000 yen / person</h2>
-                    <p class="pb-2">Family size</p>
-                </div>
-
-                <ul class="list-unstyled list-bordered text-xs-left my-4">
-                    <li class="py-4"><strong>Unlimited</strong> monthly requests</li>
-                    <li class="py-4"><strong>24/7</strong> technical supprt</li>
-                    <li class="py-4"><strong>Public &amp; Private</strong> API access</li>
-                </ul>
-
-            </div>
-        </div>
-
-    </div>
-</div>
 <!--/ main content -->
 
 
