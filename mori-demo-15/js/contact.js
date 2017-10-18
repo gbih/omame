@@ -795,9 +795,8 @@ new Vue({
 
           var xhr = new XMLHttpRequest();
 
-         // xhr.open('POST', 'https://jiko.000webhostapp.com/jquery-form/process.php', true); // mozilla.php process.php
+          xhr.open('POST', 'http://omame.sakura.ne.jp/jquery-form/process.php', true); // mozilla.php process.php
 
-          xhr.open('POST', 'https://app-1507812654.000webhostapp.com/jquery_form/process.php', true); // mozilla.php process.php
                     
           xhr.withCredentials = false;
 
