@@ -1,395 +1,323 @@
 "use strict";
 
+// ES5 (for ios9 browsers)
 Vue.use(window.vuelidate["default"]);
 var _window$validators = window.validators;
 var required = _window$validators.required;
 var email = _window$validators.email;
 
-// above is ES5 for ios9 browsers
-
-// below is ES6 version
+// ES6 version
 // Vue.use(window.vuelidate.default);
 // const { required, email } = window.validators;
 
-
 new Vue({
   el: '#app',
+
   template: `
 
-<form>
+<form >
+
+<input type="hidden" name="form-name" value="contact" />
 
 <div class="cascading-dropdown">
 
-<div class="row">
-
-  <div class="col-md-6 dropdown form-group">
-   <label class="form-control-label">商品カテゴリー</label>
-    <select  id="one" class="custom-select form-control" v-model="form.selectedMaker">
-      <option class="form-control" value="">商品カテゴリーの選択</option>
-      <option class="form-control" v-for="(category_key, category_val) in form.catalog" :value="category_val" :key="category_key">{{category_val}}</option>
-    </select>
+  <div class="row">
+    <div class="col-md-6 dropdown form-group">
+     <label class="form-control-label">商品カテゴリー</label>
+      <select  id="one" class="custom-select form-control" v-model="form.selectedMaker">
+        <option class="form-control" value="">商品カテゴリーの選択</option>
+        <option class="form-control" v-for="(category_key, category_val) in form.catalog" :value="category_val" :key="category_key">{{category_val}}</option>
+      </select>
+    </div>
+  	<div class="col-md-5 table-inverse-gray memo d-none d-sm-none    d-md-block d-lg-block d-xl-block">
+  	  <template v-if="form.selectedMaker">
+        商品カテゴリー<br>
+        <strong>{{ form.selectedMaker }}</strong>
+        </template>
+        <template v-else>
+        商品カテゴリーを選択してください。<br>
+        商品カテゴリー以外は[コメント]にご記入してください。
+        </template>
+  	</div>
   </div>
 
-
-	<div class="col-md-5 table-inverse-gray memo d-none d-sm-none    d-md-block d-lg-block d-xl-block">
-	  <template v-if="form.selectedMaker">
-      商品カテゴリー<br>
-      <strong>{{ form.selectedMaker }}</strong>
-      </template>
-      <template v-else>
-      商品カテゴリーを選択してください。<br>
-      商品カテゴリー以外は[メッセージ]にご記入してください。
-      </template>
-
-	</div>
-</div>
-
-
-
-<div class="row">
-
-  <div class="col-md-6 dropdown form-group">
-    <label class="form-control-label">取扱メーカー</label>
-    <select   class="custom-select form-control" :disabled="form.categories.length == 0" v-model="form.selectedCategory">
-      <option class="form-control" value="">取扱メーカーの選択</option>
-      <option class="form-control" v-for="product_key in form.categories" :key="product_key">{{product_key}}</option>
-    </select>
-  </div>
-
-	<div class="col-md-5 table-inverse-gray memo  d-none d-sm-none    d-md-block d-lg-block d-xl-block">
-
-
-	  <template v-if="form.selectedCategory">
-        取扱メーカー<br>
+  <div class="row">
+    <div class="col-md-6 dropdown form-group">
+      <label class="form-control-label">取扱メーカー</label>
+      <select   class="custom-select form-control" :disabled="form.categories.length == 0" v-model="form.selectedCategory">
+        <option class="form-control" value="">取扱メーカーの選択</option>
+        <option class="form-control" v-for="product_key in form.categories" :key="product_key">{{product_key}}</option>
+      </select>
+    </div>
+  	<div class="col-md-5 table-inverse-gray memo d-none d-sm-none d-md-block d-lg-block d-xl-block">
+  	  <template v-if="form.selectedCategory">
+          取扱メーカー<br>
         <strong>{{ form.selectedCategory }}</strong>
       </template>
       <template v-else>
       取扱メーカーを選択してください。<br>
-       取扱メーカー以外は[メッセージ]にご記入してください。
+       取扱メーカー以外は[コメント]にご記入してください。
       </template>
+  	</div>
+  </div>
 
-	</div>
-</div>
+  <br>
 
-
-
-<br>
-
-
-<div class="row">
-
-<div class="col-md-6 form-group">
-  <label for="message">メッセージ<br>
-  <small>(○○○社・○○○商品・○○○個など<br>
-  取扱メーカー商品以外の商品や機械についてもご気軽にお問合せください)</small></label>
-    <textarea 
-    v-model="form.message"
-    type="text" 
-    name="form.message" 
-    class="form-control"
-    rows="7"
-    >
-    </textarea>
-</div>
-
-	<div class="col-md-5 table-inverse-gray memo  d-none d-sm-none    d-md-block d-lg-block d-xl-block">
-
-	  <template v-if="form.message">
-        メッセージ<br>
-        <strong>{{form.message}}</strong>
+  <div class="row">
+    <div class="col-md-6 form-group">
+      <label for="message">コメント<br>
+      <small>(○○○社・○○○商品・○○○個など<br>
+      取扱商品やそれ以外の商品、機械についてもご気軽にお問合せください)</small></label>
+        <textarea 
+        v-model="form.message"
+        type="text" 
+        name="form.message" 
+        class="form-control"
+        rows="7"
+        >
+        </textarea>
+    </div>
+  	<div class="col-md-5 table-inverse-gray memo d-none d-sm-none d-md-block d-lg-block d-xl-block">
+  	  <template v-if="form.message">
+          コメント<br>
+          <strong>{{form.message}}</strong>
       </template>
       <template v-else>
-       取扱商品以外の商品や機材についてなど、ご気軽にお問合せください。
+       取扱商品やそれ以外の商品、機材についてなど、ご気軽にお問合せください。
       </template>
+  	</div>
+  </div>
 
-	</div>
-</div>
+  <br>
 
-
-<br>
-
-
-
-<div class="row">
-
-	<div class="col-md-6 form-group" 
-	  :class="{ 'invalid-feedback': $v.form.company.$error, 
-	  'was-validated': !$v.form.company.$invalid && $v.form.company.$dirty }" 
-	  >
-	  <label class="form-control-label" for="form.company">{{form.companyTitle}}</label>
+  <div class="row">
+  	<div class="col-md-6 form-group" 
+  	  :class="{ 'invalid-feedback': $v.form.company.$error, 
+  	  'was-validated': !$v.form.company.$invalid && $v.form.company.$dirty }" 
+  	  >
+  	  <label class="form-control-label" for="form.company">{{form.companyTitle}}</label>
 	    <small v-if="$v.form.company.$error" class="form-control-feedback"> &nbsp; &nbsp;({{form.companyTitle}}は必須)</small>
-	  
-	  <input 
-	  name="form.company" 
-	  type="text" 
-	  class="form-control"
-	  :class="{ 
-	        'invalid': $v.form.company.$error, 
-	        'form-control-success': !$v.form.company.$invalid && $v.form.company.$dirty
-	        }"
-	  v-model.trim="form.company" 
-	  @blur="$v.form.company.$touch()"
-	  >
-	</div>
-
-	<div class="col-md-5 table-inverse-gray memo  d-none d-sm-none    d-md-block d-lg-block d-xl-block">
-
-	  <template v-if="form.company">
-	  	会社名<br>
+  	  <input 
+  	  name="form.company" 
+  	  type="text" 
+  	  class="form-control"
+  	  :class="{ 
+  	        'invalid': $v.form.company.$error, 
+  	        'form-control-success': !$v.form.company.$invalid && $v.form.company.$dirty
+  	        }"
+  	  v-model.trim="form.company" 
+  	  @blur="$v.form.company.$touch()"
+  	  >
+  	</div>
+  	<div class="col-md-5 table-inverse-gray memo  d-none d-sm-none    d-md-block d-lg-block d-xl-block">
+  	  <template v-if="form.company">
+  	  	会社名<br>
         <strong>{{form.company}}</strong>
       </template>
       <template v-else>
        会社名をご記入ください。
       </template>
-
-	</div>
-</div>
-
+  	</div>
+  </div>
 
 
-
-
-<div class="row">
-
-<div class="col-md-6 form-group" 
-  :class="{ 'has-danger': $v.form.dept.$error, 
-  'was-validated': !$v.form.dept.$invalid && $v.form.dept.$dirty}" 
-  >
-  <label class="form-control-label" for="form.dept">{{form.deptTitle}}</label>
-  <small v-if="$v.form.dept.$error" class="form-control-feedback">&nbsp; &nbsp;({{form.deptTitle}}は必須)</small>
-  <input 
-  name="form.dept" 
-  type="text" 
-  class="form-control"
-  :class="{ 
-        'form-control is-invalid': $v.form.dept.$error, 
-        'form-control is-valid': !$v.form.dept.$invalid && $v.form.dept.$dirty
-        }"
-  v-model.trim="form.dept" 
-  @blur="$v.form.dept.$touch()"
-  >
-</div>
-
-	<div class="col-md-5 table-inverse-gray memo  d-none d-sm-none    d-md-block d-lg-block d-xl-block">
-
-	  <template v-if="form.dept">
-	  	部署名<br>
+  <div class="row">
+    <div class="col-md-6 form-group" 
+      :class="{ 'has-danger': $v.form.dept.$error, 
+      'was-validated': !$v.form.dept.$invalid && $v.form.dept.$dirty}" 
+      >
+      <label class="form-control-label" for="form.dept">{{form.deptTitle}}</label>
+      <small v-if="$v.form.dept.$error" class="form-control-feedback">&nbsp; &nbsp;({{form.deptTitle}}は必須)</small>
+      <input 
+      name="form.dept" 
+      type="text" 
+      class="form-control"
+      :class="{ 
+            'form-control is-invalid': $v.form.dept.$error, 
+            'form-control is-valid': !$v.form.dept.$invalid && $v.form.dept.$dirty
+            }"
+      v-model.trim="form.dept" 
+      @blur="$v.form.dept.$touch()"
+      >
+    </div>
+  	<div class="col-md-5 table-inverse-gray memo  d-none d-sm-none d-md-block d-lg-block d-xl-block">
+  	  <template v-if="form.dept">
+  	  	部署名<br>
         <strong>{{form.dept}}</strong>
       </template>
       <template v-else>
        部署名をご記入ください。
       </template>
-
-	</div>
-</div>
-
+  	</div>
+  </div>
 
 
-
-<div class="row">
-
-<div class="col-md-6 form-group" 
-  :class="{ 'is-invalid': $v.form.name.$error, 'was-validated': !$v.form.name.$invalid }" >
-  <label class="form-control-label" for="form.name">{{form.nameTitle}}  <small>【必須】</small></label>
-  <small v-if="$v.form.name.$error" class="form-control-feedback">&nbsp; &nbsp;({{form.nameTitle}}は必須)</small>
-  <input 
-  name="form.name" 
-  type="text" 
-  class="form-control"
-  :class="{ 
-        'form-control is-invalid': $v.form.name.$error, 
-        'form-control is-valid': !$v.form.name.$invalid 
-        }"
-  v-model.trim="form.name" 
-  @blur="$v.form.name.$touch()"
-  >
-</div>
-
-	<div class="col-md-5 table-inverse-gray memo  d-none d-sm-none    d-md-block d-lg-block d-xl-block">
-
-	  <template v-if="form.name">
-	  	お名前<br>
+  <div class="row">
+    <div class="col-md-6 form-group" 
+      :class="{ 'is-invalid': $v.form.name.$error, 'was-validated': !$v.form.name.$invalid }" >
+      <label class="form-control-label" for="form.name">{{form.nameTitle}}  <small>【必須】</small></label>
+      <small v-if="$v.form.name.$error" class="form-control-feedback">&nbsp; &nbsp;({{form.nameTitle}}は必須)</small>
+      <input 
+      name="form.name" 
+      type="text" 
+      class="form-control"
+      :class="{ 
+            'form-control is-invalid': $v.form.name.$error, 
+            'form-control is-valid': !$v.form.name.$invalid 
+            }"
+      v-model.trim="form.name" 
+      @blur="$v.form.name.$touch()"
+      >
+    </div>
+  	<div class="col-md-5 table-inverse-gray memo d-none d-sm-none d-md-block d-lg-block d-xl-block">
+  	  <template v-if="form.name">
+  	  	お名前<br>
         <strong>{{form.name}}</strong>
       </template>
       <template v-else>
        お名前をご記入ください。（必須項目です）
       </template>
-
-	</div>
-</div>
-
+  	</div>
+  </div>
 
 
+  <div class="row">
 
+    <div class="col-md-6 form-group" 
+      :class="{ 'has-danger': $v.form.furigana.$error, 'was-validated': !$v.form.furigana.$invalid }" >
+      <label class="form-control-label" for="form.furigana">{{form.furiganaTitle}} <small>【必須】</small></label>
+      <small v-if="$v.form.furigana.$error" class="form-control-feedback">&nbsp; &nbsp;({{form.furiganaTitle}}は必須)</small>
+      <input 
+      name="form.furigana" 
+      type="text" 
+      class="form-control"
+      :class="{ 
+            'form-control is-invalid': $v.form.furigana.$error, 
+            'form-control is-valid': !$v.form.furigana.$invalid 
+            }"
+      v-model.trim="form.furigana" 
+      @blur="$v.form.furigana.$touch()"
+      >
+    </div>
 
-
-<div class="row">
-
-<div class="col-md-6 form-group" 
-  :class="{ 'has-danger': $v.form.furigana.$error, 'was-validated': !$v.form.furigana.$invalid }" >
-  <label class="form-control-label" for="form.furigana">{{form.furiganaTitle}} <small>【必須】</small></label>
-  <small v-if="$v.form.furigana.$error" class="form-control-feedback">&nbsp; &nbsp;({{form.furiganaTitle}}は必須)</small>
-  <input 
-  name="form.furigana" 
-  type="text" 
-  class="form-control"
-  :class="{ 
-        'form-control is-invalid': $v.form.furigana.$error, 
-        'form-control is-valid': !$v.form.furigana.$invalid 
-        }"
-  v-model.trim="form.furigana" 
-  @blur="$v.form.furigana.$touch()"
-  >
-</div>
-
-	<div class="col-md-5 table-inverse-gray memo  d-none d-sm-none    d-md-block d-lg-block d-xl-block">
-
-	  <template v-if="form.furigana">
-	  	ふりがな<br>
+  	<div class="col-md-5 table-inverse-gray memo d-none d-sm-none d-md-block d-lg-block d-xl-block">
+  	  <template v-if="form.furigana">
+  	  	ふりがな<br>
         <strong>{{form.furigana}}</strong>
       </template>
       <template v-else>
        ふりがなをご記入ください。（必須項目です）
       </template>
-
-	</div>
-</div>
-
+  	</div>
+  </div>
 
 
-
-<div class="row">
-
-<div class="col-md-6 form-group" 
-  :class="{ 'has-danger': $v.form.email.$error, 'was-validated': !$v.form.email.$invalid }" >
-  <label class="form-control-label" for="form.email">{{form.emailTitle}} <small>【必須】</small></label>
-  <small v-if="$v.form.email.$error" class="form-control-feedback">&nbsp; &nbsp;({{form.emailTitle}}は必須)</small>
-  <input 
-  name="form.email" 
-  type="text" 
-  class="form-control"
-  :class="{ 
-        'form-control is-invalid': $v.form.email.$error, 
-        'form-control is-valid': !$v.form.email.$invalid 
-        }"
-  v-model.trim="form.email" 
-  @blur="$v.form.email.$touch()"
-  >
-</div>
-
-	<div class="col-md-5 table-inverse-gray memo  d-none d-sm-none    d-md-block d-lg-block d-xl-block">
-
-	  <template v-if="form.email">
-	  	メールアドレス<br>
+  <div class="row">
+    <div class="col-md-6 form-group" 
+      :class="{ 'has-danger': $v.form.email.$error, 'was-validated': !$v.form.email.$invalid }" >
+      <label class="form-control-label" for="form.email">{{form.emailTitle}} <small>【必須】</small></label>
+      <small v-if="$v.form.email.$error" class="form-control-feedback">&nbsp; &nbsp;({{form.emailTitle}}は必須)</small>
+      <input 
+      name="form.email" 
+      type="text" 
+      class="form-control"
+      :class="{ 
+            'form-control is-invalid': $v.form.email.$error, 
+            'form-control is-valid': !$v.form.email.$invalid 
+            }"
+      v-model.trim="form.email" 
+      @blur="$v.form.email.$touch()"
+      >
+    </div>
+  	<div class="col-md-5 table-inverse-gray memo d-none d-sm-none d-md-block d-lg-block d-xl-block">
+  	  <template v-if="form.email">
+  	  	メールアドレス<br>
         <strong>{{form.email}}</strong>
       </template>
       <template v-else>
        メールアドレスをご記入ください。（必須項目です）
       </template>
-
-	</div>
-</div>
-
+  	</div>
+  </div>
 
 
-
-<div class="row">
-
-<div class="col-md-6 form-group" 
-  :class="{ 'has-danger': $v.form.phone.$error, 'was-validated': !$v.form.phone.$invalid }" >
-  <label class="form-control-label" for="form.phone">{{form.phoneTitle}} <small>【必須】</small></label>
-  <small v-if="$v.form.phone.$error" class="form-control-feedback">&nbsp; &nbsp;({{form.phoneTitle}}は必須)</small>
-  <input 
-  name="form.phone" 
-  type="text" 
-  class="form-control"
-  :class="{ 
-        'form-control is-invalid': $v.form.phone.$error, 
-        'form-control is-valid': !$v.form.phone.$invalid 
-        }"
-  v-model.trim="form.phone" 
-  @blur="$v.form.phone.$touch()"
-  >
-</div>
-
-	<div class="col-md-5 table-inverse-gray memo  d-none d-sm-none    d-md-block d-lg-block d-xl-block">
-
-	  <template v-if="form.phone">
-	  	電話<br>
+  <div class="row">
+    <div class="col-md-6 form-group" 
+      :class="{ 'has-danger': $v.form.phone.$error, 'was-validated': !$v.form.phone.$invalid }" >
+      <label class="form-control-label" for="form.phone">{{form.phoneTitle}} <small>【必須】</small></label>
+      <small v-if="$v.form.phone.$error" class="form-control-feedback">&nbsp; &nbsp;({{form.phoneTitle}}は必須)</small>
+      <input 
+      name="form.phone" 
+      type="text" 
+      class="form-control"
+      :class="{ 
+            'form-control is-invalid': $v.form.phone.$error, 
+            'form-control is-valid': !$v.form.phone.$invalid 
+            }"
+      v-model.trim="form.phone" 
+      @blur="$v.form.phone.$touch()"
+      >
+    </div>
+  	<div class="col-md-5 table-inverse-gray memo d-none d-sm-none d-md-block d-lg-block d-xl-block">
+  	  <template v-if="form.phone">
+  	  	電話<br>
         <strong>{{form.phone}}</strong>
       </template>
       <template v-else>
        電話番号をご記入ください。（必須項目です）
       </template>
-
-	</div>
-</div>
-
-
-
-
-
-
-
-
-<div class="row">
-
-  <div class="col-md-6 form-check-inline">
-    <label><span>連絡方法:&nbsp;&nbsp;</span></label>
-    <br>
-    <div class="form-check form-check-inline">
-
-
-      <label class="form-check-label">
-        <input type="radio" id="byemail" value="byemail" v-model="form.prefer" class="form-check-input">
-        <span class="custom-control-description">{{form.preferTitleEmail}}</span>
-      </label>
-
-      <span>&nbsp;&nbsp;</span>
-
-      <label class="form-check-label">
-        <input type="radio" id="byphone" value="byphone" v-model="form.prefer" class="form-check-input">
-        <span class="custom-control-description">{{form.preferTitlePhone}}</span>
-      </label>
-
-      <label class="form-check-label"><span>を優先する</span></label>
-
-    </div>
+  	</div>
   </div>
 
 
-	<div class="col-md-5 table-inverse-gray memo  d-none d-sm-none    d-md-block d-lg-block d-xl-block">
-	連絡方法<br>
-	  <template v-if="form.prefer == 'byemail'">
+  <div class="row">
+    <div class="col-md-6">
+      <label><span>連絡方法:&nbsp;&nbsp;</span></label>
+      <br>
+      <div class="form-check form-check-inline">
+        <label class="form-check-label">
+          <input type="radio" id="byemail" value="byemail" v-model="form.prefer" class="form-check-input">
+          <span class="custom-control-description">{{form.preferTitleEmail}}</span>
+        </label>
+        <span>&nbsp;&nbsp;</span>
+        <label class="form-check-label">
+          <input type="radio" id="byphone" value="byphone" v-model="form.prefer" class="form-check-input">
+          <span class="custom-control-description">{{form.preferTitlePhone}}</span>
+        </label>
+        <label class="form-check-label"><span>を優先する</span></label>
+      </div>
+    </div>
+
+
+  	<div class="col-md-5 table-inverse-gray memo  d-none d-sm-none d-md-block d-lg-block d-xl-block">
+    連絡方法<br>
+  	  <template v-if="form.prefer == 'byemail'">
         <strong>{{ form.preferTitleEmail }}</strong>
       </template>
       <template v-else>
         <strong>{{ form.preferTitlePhone }}</strong>
       </template>
       <span>を優先する</span>
-	</div>
+  	</div>
+  </div>
+
+
+
+  <section class="button-demo my-1 py-0">
+    <button 
+      class="ladda-button btn btn-primary" 
+      data-size="m" 
+      data-color="blue" 
+      data-style="expand-right" 
+      type="submit"
+      @click.prevent="validateBeforeSubmit(form, $v)"
+      >
+      <span class="ladda-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;送信&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span class="ladda-spinner"></span>
+    </button>
+  </section>
+
 </div>
-
-
-<section class="button-demo my-1 py-0">
-  <button 
-    class="ladda-button btn btn-primary" 
-    data-size="m" 
-    data-color="blue" 
-    data-style="expand-right" 
-    type="submit"
-    @click.prevent="validateBeforeSubmit(form, $v)"
-    >
-    <span class="ladda-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;送信&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    <span class="ladda-spinner"></span>
-  </button>
-</section>
-
-
-</div>
-
-
-
 
 
 <template v-if="form.operationSuccess" v-model="form.operationSuccess">
@@ -399,10 +327,6 @@ new Vue({
 </div>
 </template>
 
-<!--
-<pre>{{ $v }}</pre>
--->
-
 </form>
 
 `,
@@ -410,17 +334,12 @@ new Vue({
     return {
 
       // product variables
-      
-
       form: {
-
-        //show: true,
 
         categories: [],
         products: [],
         selectedMaker: '',
         selectedCategory: '',
-
         operationSuccess: false,
 
         // set up form variables here
@@ -442,18 +361,12 @@ new Vue({
         phone: '',
         phoneTitle: '電話',
 
-
-        // selected: "true",
-
         prefer: 'byemail',
-
-
         preferTitleEmail: 'メール',
         preferTitlePhone: '電話',
 
         message: '',
         messageTitle: 'メッセージ',
-
 
         catalog: {
           
@@ -481,7 +394,6 @@ new Vue({
           "西精工(株)",
           "ケーエム精工(株)"
           ],
-
 
           "伝導機器":[
           "NSK",
@@ -515,7 +427,6 @@ new Vue({
           "(株)マキシンコー",
           "三木プーリー(株)"
           ],
-
 
           "測定工具": [
           "愛知時計電機(株)",
@@ -561,7 +472,6 @@ new Vue({
           "理研計器(株)"
           ],
 
-
           "作業工具": [
           "旭金属工業(株)",
           "京都機械工具(株)",
@@ -583,7 +493,6 @@ new Vue({
           "大阪角田工業(株)",
           "オーエッチ工業(株)"
           ],
-
 
           "輸送機器 (マテハン)": [
           "(株)メイキコウ",
@@ -608,7 +517,6 @@ new Vue({
           "(株)フリーベアコーポレーション",
           "(株)をくだ屋技研"
           ],
-
 
           "切削工具類": [
           "イスカルジャパン",
@@ -640,7 +548,6 @@ new Vue({
           "ユニカ(株)"
           ],
 
-
           "空気油圧機器類": [
           "(株)TAIYO",
           "SMC(株)",
@@ -666,7 +573,6 @@ new Vue({
           "(株)妙徳",
           "日本精機(株)"
           ],
-
 
           "工作機械": [
           "(株)相澤鉄工所",
@@ -696,7 +602,6 @@ new Vue({
           "(株)山崎技研",
           "ヤマザキマザック(株)"
           ],
-
 
           "電動空気工具": [
           "アサダ(株)",
@@ -732,13 +637,11 @@ new Vue({
 
 
   validations: {
-    form: {  
+    form: {
 
       company: {
-        // required
       },
       dept: {
-        // required
       },
       name: {
         required
@@ -757,7 +660,6 @@ new Vue({
         required
       },
       message: {
-
       }
 
     } // end of form object
@@ -767,7 +669,28 @@ new Vue({
 
   methods: {
 
+
     validateBeforeSubmit(form, $v) {
+
+      var encode = function encode(data) {
+        return Object.keys(data).map(function (key) {
+          return encodeURIComponent(key) + "=" + encodeURIComponent(data[key]);
+        }).join("&");
+      };
+
+
+      // this.state = { 
+      //   company: form.company,
+      //   dept: form.dept,
+      //   name: form.name,
+      //   furigana: form.furigana,
+      //   email: form.email,
+      //   phone: form.phone,
+      //   prefer: form.prefer,
+      //   message: form.message,
+      //   selectedMaker: form.selectedMaker,
+      //   selectedCategory: form.selectedCategory
+      // };
 
       this.$v.form.$touch(); // update validation
 
@@ -775,11 +698,61 @@ new Vue({
         console.log('form is invalid: ERROR');
       } else if (!this.$v.form.$invalid) {
         console.log('called submitForm');
-        this.submitForm(form, $v);
+        
+        // NEW FOR NETLIFY
+        console.log('new for netlify');
+        // this.submitForm(form, $v);
+
+        // ladda button setup
+        var l = Ladda.create(document.querySelector('.ladda-button'));
+        l.start();
+
+        // var state = { name: "George", email: "", message: "" };
+
+        fetch("/", {
+
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: encode({ 
+            "form-name": "contact", 
+            company: form.company,
+            dept: form.dept,
+            name: form.name,
+            furigana: form.furigana,
+            email: form.email,
+            phone: form.phone,
+            prefer: form.prefer,
+            message: form.message,
+            selectedMaker: form.selectedMaker,
+            selectedCategory: form.selectedCategory 
+          })
+        })
+        // .then(() => alert("Success!"))
+        .then(()=> {
+          // ladda button
+          l.stop();
+
+          form.company = '';
+          form.dept = '';
+          form.name = '';
+          form.furigana = '';
+          form.email = '';
+          form.phone = '';
+          form.message = '';
+          form.selectedMaker = '';
+          form.selectedCategory = '';
+
+          $v.form.$reset();
+
+          form.operationSuccess = true;
+
+          console.log("form.operationSuccess is " + form.operationSuccess);
+
+        })
+        .catch(error => alert(error));
+
       }
     },
-
-
 
 
     submitForm(form, $v) {
@@ -788,16 +761,17 @@ new Vue({
       var l = Ladda.create(document.querySelector('.ladda-button'));
       l.start();
 
-
-
       function makeRequest() {
         return new Promise(function (resolve, reject) {
 
           var xhr = new XMLHttpRequest();
 
-          xhr.open('POST', 'http://omame.sakura.ne.jp/jquery-form/process.php', true); // mozilla.php process.php
+         // xhr.open('POST', 'https://jiko.000webhostapp.com/jquery-form/process.php', true); // mozilla.php process.php
 
-                    
+          // xhr.open('POST', 'https://app-1507812654.000webhostapp.com/jquery_form/process.php', true); // mozilla.php process.php
+
+          xhr.open('POST', '', true); // mozilla.php process.php
+
           xhr.withCredentials = false;
 
           xhr.onload = function () {
@@ -818,7 +792,6 @@ new Vue({
           };
 
           xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-
 
           xhr.send(encodeURI( 
               '&company='+form.company 
@@ -849,18 +822,14 @@ new Vue({
       }
 
 
-
-
       makeRequest()
-
       .then(function (datums) {
 
         // ladda button
         l.stop();
 
-        // assume successful submission, clear fields and vuelidator messages
-        // keep value for form.prefer since we prefer a default value for it.
-        // need to keep prefer-field, since this is a stateful Radio UI
+        // assuming successful submission, clear fields and vuelidator messages
+        // need to keep form.prefer, since this is a stateful Radio UI
         
         form.company = '';
         form.dept = '';
