@@ -198,7 +198,82 @@ Work stints at Fidelity Investments, Yamaichi Securities, Merrill Lynch, PDIC, S
         </div>
     </div>
 </div>
-</section>  </main>
+</section>
+
+
+<pre>%Plug.Conn{
+  adapter: {Plug.Adapters.Cowboy.Conn, :...},
+  assigns: %{
+    about_active: &quot;nav-link active&quot;,
+    artwork_active: &quot;nav-link&quot;,
+    illustration_active: &quot;nav-link&quot;,
+    layout: {OmameWeb.LayoutView, &quot;app.html&quot;},
+    mobile_active: &quot;nav-link&quot;,
+    paulsmith_active: &quot;nav-link&quot;,
+    photography_active: &quot;nav-link&quot;,
+    web_active: &quot;nav-link&quot;
+  },
+  before_send: [#Function&lt;0.59940076/1 in Plug.CSRFProtection.call/2&gt;,
+   #Function&lt;4.34183493/1 in Phoenix.Controller.fetch_flash/2&gt;,
+   #Function&lt;0.45862765/1 in Plug.Session.before_send/2&gt;,
+   #Function&lt;1.109182719/1 in Plug.Logger.call/2&gt;],
+  body_params: %{},
+  cookies: %{},
+  halted: false,
+  host: &quot;0.0.0.0&quot;,
+  method: &quot;GET&quot;,
+  owner: #PID&lt;0.383.0&gt;,
+  params: %{},
+  path_info: [&quot;about&quot;],
+  path_params: %{},
+  peer: {{0, 0, 0, 0, 0, 65535, 32512, 1}, 50090},
+  port: 4000,
+  private: %{
+    OmameWeb.Router =&gt; {[], %{}},
+    :phoenix_action =&gt; :index,
+    :phoenix_controller =&gt; OmameWeb.AboutController,
+    :phoenix_endpoint =&gt; OmameWeb.Endpoint,
+    :phoenix_flash =&gt; %{},
+    :phoenix_format =&gt; &quot;html&quot;,
+    :phoenix_layout =&gt; {OmameWeb.LayoutView, :app},
+    :phoenix_pipelines =&gt; [:browser],
+    :phoenix_router =&gt; OmameWeb.Router,
+    :phoenix_template =&gt; &quot;index.html&quot;,
+    :phoenix_view =&gt; OmameWeb.AboutView,
+    :plug_session =&gt; %{},
+    :plug_session_fetch =&gt; :done
+  },
+  query_params: %{},
+  query_string: &quot;&quot;,
+  remote_ip: {0, 0, 0, 0, 0, 65535, 32512, 1},
+  req_cookies: %{},
+  req_headers: [
+    {&quot;referer&quot;, &quot;http://0.0.0.0:4000/&quot;},
+    {&quot;connection&quot;, &quot;keep-alive&quot;},
+    {&quot;host&quot;, &quot;0.0.0.0:4000&quot;},
+    {&quot;user-agent&quot;, &quot;Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)&quot;},
+    {&quot;accept&quot;,
+     &quot;text/html,image/png,image/jpeg,image/pjpeg,image/x-xbitmap,image/svg+xml,image/gif;q=0.9,*/*;q=0.1&quot;},
+    {&quot;accept-language&quot;, &quot;en, *&quot;},
+    {&quot;accept-encoding&quot;, &quot;gzip, identity;q=0.9&quot;}
+  ],
+  request_path: &quot;/about&quot;,
+  resp_body: nil,
+  resp_cookies: %{},
+  resp_headers: [
+    {&quot;cache-control&quot;, &quot;max-age=0, private, must-revalidate&quot;},
+    {&quot;x-request-id&quot;, &quot;c7r5k7230kc5vc2j1nsfki5jl3fgs7du&quot;},
+    {&quot;x-frame-options&quot;, &quot;SAMEORIGIN&quot;},
+    {&quot;x-xss-protection&quot;, &quot;1; mode=block&quot;},
+    {&quot;x-content-type-options&quot;, &quot;nosniff&quot;}
+  ],
+  scheme: :http,
+  script_name: [],
+  secret_key_base: &quot;aWlSEKmk/Zkl1yIvwzuJDy5d6kSmrRopt6HyJkcDA23KT09Z2fYUiWVUoNxXOy9n&quot;,
+  state: :unset,
+  status: nil
+}</pre>
+  </main>
 <!--/ main content -->
 
 <footer class="blockquote-footer-omame bg-dark navbar-dark mt-5 mb-0">

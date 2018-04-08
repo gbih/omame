@@ -101,6 +101,9 @@
 
 <!-- main content -->
   <main role="main ">
+
+
+
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -372,6 +375,195 @@
 
 
 </center></section>
+
+<!--
+<pre>%Plug.Conn{
+  adapter: {Plug.Adapters.Cowboy.Conn, :...},
+  assigns: %{
+    about_active: &quot;nav-link&quot;,
+    artwork_active: &quot;nav-link&quot;,
+    explanation: %{
+      &quot;artwork_link&quot; =&gt; &quot;artwork&quot;,
+      &quot;artwork_title&quot; =&gt; &quot;New Art Work&quot;,
+      &quot;button_about_link&quot; =&gt; &quot;about&quot;,
+      &quot;button_illustration_link&quot; =&gt; &quot;illustration&quot;,
+      &quot;button_mobile_link&quot; =&gt; &quot;mobile&quot;,
+      &quot;button_paulsmith_link&quot; =&gt; &quot;paulsmith&quot;,
+      &quot;button_photography_link&quot; =&gt; &quot;photography&quot;,
+      &quot;button_web_link&quot; =&gt; &quot;web&quot;,
+      &quot;language_en&quot; =&gt; true,
+      &quot;title1&quot; =&gt; &quot;Photography, Design, Illustration, Web Programming&quot;,
+      &quot;title2&quot; =&gt; &quot;Studio Omame is a design and development studio in Niigata, Japan, providing creative solutions for clients.&quot;
+    },
+    illustration_active: &quot;nav-link&quot;,
+    layout: {OmameWeb.LayoutView, &quot;app.html&quot;},
+    mobile_active: &quot;nav-link&quot;,
+    paulsmith_active: &quot;nav-link&quot;,
+    photography_active: &quot;nav-link&quot;,
+    sakuhin: %{
+      &quot;sakuhin_01&quot; =&gt; %{
+        image: &quot;artwork_02_07.jpg&quot;,
+        link: &quot;art_work_02&quot;,
+        title: &quot;Chinook (Snow Eater)&quot;
+      },
+      &quot;sakuhin_02&quot; =&gt; %{
+        image: &quot;artwork_04_03.jpg&quot;,
+        link: &quot;art_work_04&quot;,
+        title: &quot;Yamame (Fish)&quot;
+      },
+      &quot;sakuhin_03&quot; =&gt; %{
+        image: &quot;artwork_01_05.jpg&quot;,
+        link: &quot;art_work_01&quot;,
+        title: &quot;Kamoshika&quot;
+      },
+      &quot;sakuhin_04&quot; =&gt; %{
+        image: &quot;artwork_13_03.jpg&quot;,
+        link: &quot;art_work_13&quot;,
+        title: &quot;Kamemushi&quot;
+      },
+      &quot;sakuhin_05&quot; =&gt; %{
+        image: &quot;artwork_12_03.jpg&quot;,
+        link: &quot;art_work_12&quot;,
+        title: &quot;Neko&quot;
+      },
+      &quot;sakuhin_06&quot; =&gt; %{
+        image: &quot;artwork_03_04.jpg&quot;,
+        link: &quot;art_work_03&quot;,
+        title: &quot;Kamoshika Jr.&quot;
+      },
+      &quot;sakuhin_07&quot; =&gt; %{
+        image: &quot;artwork_05_06.jpg&quot;,
+        link: &quot;art_work_05&quot;,
+        title: &quot;Studio Omame Logo&quot;
+      },
+      &quot;sakuhin_08&quot; =&gt; %{
+        image: &quot;artwork_01_06.jpg&quot;,
+        link: &quot;art_work_01&quot;,
+        title: &quot;Kamoshika&quot;
+      },
+      &quot;sakuhin_09&quot; =&gt; %{
+        image: &quot;artwork_16_01.jpg&quot;,
+        link: &quot;art_work_16&quot;,
+        title: &quot;Mt. Naeba&quot;
+      },
+      &quot;sakuhin_10&quot; =&gt; %{
+        image: &quot;artwork_11_06.jpg&quot;,
+        link: &quot;art_work_11&quot;,
+        title: &quot;Honda FTR&quot;
+      },
+      &quot;sakuhin_11&quot; =&gt; %{
+        image: &quot;artwork_08_02.jpg&quot;,
+        link: &quot;art_work_08&quot;,
+        title: &quot;Yamadori&quot;
+      },
+      &quot;sakuhin_12&quot; =&gt; %{
+        image: &quot;artwork_18_06.jpg&quot;,
+        link: &quot;art_work_18&quot;,
+        title: &quot;Mt. Mantaro&quot;
+      },
+      &quot;sakuhin_13&quot; =&gt; %{
+        image: &quot;artwork_02_09.jpg&quot;,
+        link: &quot;art_work_02&quot;,
+        title: &quot;Mt. Mantaro&quot;
+      },
+      &quot;sakuhin_14&quot; =&gt; %{
+        image: &quot;artwork_16_03.jpg&quot;,
+        link: &quot;art_work_16&quot;,
+        title: &quot;Mt. Naeba&quot;
+      },
+      &quot;sakuhin_15&quot; =&gt; %{
+        image: &quot;artwork_top_21.jpg&quot;,
+        link: &quot;art_work_21&quot;,
+        title: &quot;Mountain Wolf&quot;
+      },
+      &quot;sakuhin_16&quot; =&gt; %{
+        image: &quot;artwork_15_01.jpg&quot;,
+        link: &quot;art_work_15&quot;,
+        title: &quot;MTB&quot;
+      },
+      &quot;sakuhin_17&quot; =&gt; %{
+        image: &quot;artwork_03_06.jpg&quot;,
+        link: &quot;art_work_03&quot;,
+        title: &quot;Kamoshika Jr.&quot;
+      },
+      &quot;sakuhin_18&quot; =&gt; %{
+        image: &quot;artwork_06_02.jpg&quot;,
+        link: &quot;art_work_06&quot;,
+        title: &quot;Heron&quot;
+      },
+      &quot;sakuhin_19&quot; =&gt; %{
+        image: &quot;artwork_07_03.jpg&quot;,
+        link: &quot;art_work_07&quot;,
+        title: &quot;Koshiabura (Mountain vegetables)&quot;
+      },
+      &quot;sakuhin_20&quot; =&gt; %{
+        image: &quot;artwork_10_02.jpg&quot;,
+        link: &quot;art_work_10&quot;,
+        title: &quot;Hike &amp; Fish&quot;
+      }
+    },
+    web_active: &quot;nav-link&quot;
+  },
+  before_send: [#Function&lt;0.59940076/1 in Plug.CSRFProtection.call/2&gt;,
+   #Function&lt;4.34183493/1 in Phoenix.Controller.fetch_flash/2&gt;,
+   #Function&lt;0.45862765/1 in Plug.Session.before_send/2&gt;,
+   #Function&lt;1.109182719/1 in Plug.Logger.call/2&gt;],
+  body_params: %{},
+  cookies: %{},
+  halted: false,
+  host: &quot;0.0.0.0&quot;,
+  method: &quot;GET&quot;,
+  owner: #PID&lt;0.372.0&gt;,
+  params: %{},
+  path_info: [],
+  path_params: %{},
+  peer: {{0, 0, 0, 0, 0, 65535, 32512, 1}, 50079},
+  port: 4000,
+  private: %{
+    OmameWeb.Router =&gt; {[], %{}},
+    :phoenix_action =&gt; :index,
+    :phoenix_controller =&gt; OmameWeb.PageController,
+    :phoenix_endpoint =&gt; OmameWeb.Endpoint,
+    :phoenix_flash =&gt; %{},
+    :phoenix_format =&gt; &quot;html&quot;,
+    :phoenix_layout =&gt; {OmameWeb.LayoutView, :app},
+    :phoenix_pipelines =&gt; [:browser],
+    :phoenix_router =&gt; OmameWeb.Router,
+    :phoenix_template =&gt; &quot;index.html&quot;,
+    :phoenix_view =&gt; OmameWeb.PageView,
+    :plug_session =&gt; %{},
+    :plug_session_fetch =&gt; :done
+  },
+  query_params: %{},
+  query_string: &quot;&quot;,
+  remote_ip: {0, 0, 0, 0, 0, 65535, 32512, 1},
+  req_cookies: %{},
+  req_headers: [
+    {&quot;connection&quot;, &quot;keep-alive&quot;},
+    {&quot;host&quot;, &quot;0.0.0.0:4000&quot;},
+    {&quot;user-agent&quot;, &quot;Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)&quot;},
+    {&quot;accept&quot;,
+     &quot;text/html,image/png,image/jpeg,image/pjpeg,image/x-xbitmap,image/svg+xml,image/gif;q=0.9,*/*;q=0.1&quot;},
+    {&quot;accept-language&quot;, &quot;en, *&quot;},
+    {&quot;accept-encoding&quot;, &quot;gzip, identity;q=0.9&quot;}
+  ],
+  request_path: &quot;/&quot;,
+  resp_body: nil,
+  resp_cookies: %{},
+  resp_headers: [
+    {&quot;cache-control&quot;, &quot;max-age=0, private, must-revalidate&quot;},
+    {&quot;x-request-id&quot;, &quot;8u84si9csd21kq6cjc9r388d6ecdemoq&quot;},
+    {&quot;x-frame-options&quot;, &quot;SAMEORIGIN&quot;},
+    {&quot;x-xss-protection&quot;, &quot;1; mode=block&quot;},
+    {&quot;x-content-type-options&quot;, &quot;nosniff&quot;}
+  ],
+  scheme: :http,
+  script_name: [],
+  secret_key_base: &quot;aWlSEKmk/Zkl1yIvwzuJDy5d6kSmrRopt6HyJkcDA23KT09Z2fYUiWVUoNxXOy9n&quot;,
+  state: :unset,
+  status: nil
+}</pre>
+-->
   </main>
 <!--/ main content -->
 
